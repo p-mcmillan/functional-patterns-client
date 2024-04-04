@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* header font */
+  @font-face {
+    font-family: "Bebas Neue Regular";
+    src: url("./assets/fonts/bebas_neue/BebasNeue-Regular.woff") format("woff");
+    src: url("./assets/fonts/bebas_neue/BebasNeue-Regular.woff2")
+      format("woff2");
+    src: url("./assets/fonts/bebas_neue/BebasNeue-Regular.ttf")
+      format("truetype");
+    src: url("./assets/fonts/bebas_neue/BebasNeue-Regular.otf")
+      format("opentype");
+  }
+
+  /* body font */
+  @font-face {
+    font-family: "Quicksand Regular";
+    src: url("./assets/fonts/quicksand/Quicksand-Regular.ttf")
+      format("truetype");
+  }
+
+  @font-face {
+    font-family: "Quicksand Light";
+    src: url("./assets/fonts/quicksand/Quicksand_Light.otf") format("opentype");
+  }
+}
+
+body {
+  /* background-color: black; */
+  overflow-x: hidden;
+  -webkit-text-size-adjust: none;
+}
+
+#root {
+  overflow: hidden;
+}
+
+/* In your CSS file or Tailwind config */
+.scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+}
+
+/* Adjust styles of child elements as needed */
+.scroll-container > * {
+  scroll-snap-align: start; /* or center, end, etc. */
+}
+
+/* NOT WORKING FIGURE OUT LATER */
+
+/* White color for navigation arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+}
+
+/* White color for pagination dots */
+.swiper-pagination-bullet {
+  background-color: white;
+}
+h1 {
+  font-family: "Bebas Neue Regular", sans-serif;
+  letter-spacing: 2px;
+  font-size: 28px;
+}
+
+h2 {
+  font-family: "Bebas Neue Regular", sans-serif;
+  letter-spacing: 2px;
+  font-size: 28px;
+}
+
+p {
+  font-family: "Quicksand", sans-serif;
+  /* font-size: 16px; */
+}
+
+/* Style placeholder text when input field has an error */
+input::placeholder {
+  color: #999; /* Default placeholder text color */
+}
+
+input:focus::placeholder {
+  color: #333; /* Placeholder text color when input field is focused */
+}
+
+input.error::placeholder {
+  color: red; /* Placeholder text color when input field has an error */
+}
