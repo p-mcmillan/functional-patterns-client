@@ -7,6 +7,8 @@ import axios from "axios";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
+const apiBaseUrl = import.meta.env.VITE_CONTACT_API;
+
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),
@@ -33,7 +35,7 @@ const Contact = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
-  const apiBaseUrl = import.meta.env.VITE_CONTACT_API;
+  //const apiBaseUrl = import.meta.env.VITE_CONTACT_API;
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -60,7 +62,7 @@ const Contact = () => {
 
   const onSubmit = async (formData, actions) => {
     try {
-      await axios.post(`${apiBaseUrl}/form`, formData);
+      await axios.post(`${apiBaseUrl}/api/form`, formData);
       setIsSubmitted(true);
       setTimeout(() => {
         navigate("/"); // Redirect to home page after 5 seconds

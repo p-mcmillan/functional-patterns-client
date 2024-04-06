@@ -29,10 +29,10 @@ const Brent = lazy(() => import("./pages/Practitioners/Brent"));
 const Reviews = lazy(() => import("./pages/Reviews/Reviews"));
 
 function App() {
-  const [photoResultsData, setPhotoResultsData] = useState(resultsPhoto);
-  const [videoResultsData, setVideoResultsData] = useState(resultsVideo);
-  const [videoHeroData, setvideoHeroData] = useState(heroVideo);
-  const [pricingData, setPricingData] = useState(pricingMenu);
+  const [photoResultsData] = useState(resultsPhoto);
+  const [videoResultsData] = useState(resultsVideo);
+  const [videoHeroData] = useState(heroVideo);
+  const [pricingData] = useState(pricingMenu);
   const [openPopup, setOpenPopup] = useState(false);
   const [infoVideoData] = useState(infoVideo);
   const HandleRemovePopUp = () => setOpenPopup(false);

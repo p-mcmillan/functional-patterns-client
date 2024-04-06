@@ -90,3 +90,60 @@ input:focus::placeholder {
 input.error::placeholder {
   color: red; /* Placeholder text color when input field has an error */
 }
+
+.border-red-500 {
+  border-color: #ef4444; /* or any desired shade of red */
+}
+
+.text-red-900 {
+  color: #991b1b; /* or any desired shade of red */
+}
+@keyframes skew-x-shakeng {
+  0% {
+    transform: skewX(-15deg);
+  }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+@keyframes skew-y-shakeing {
+  0% {
+    transform: skewY(-15deg);
+  }
+  5% {
+    transform: skewY(15deg);
+  }
+  10% {
+    transform: skewY(-15deg);
+  }
+  15% {
+    transform: skewY(15deg);
+  }
+  20% {
+    transform: skewY(0deg);
+  }
+  100% {
+    transform: skewY(0deg);
+  }
+}
+
+.tilt-animation {
+  animation: tilt-n-move-shaking skew-y-shakeing 1s infinite; /* Apply the animation */
+}
+
+.tilt-animation {
+  animation: tilt-n-move-shaking skew-x-shakeng 1s infinite; /* Apply the animation */
+}
