@@ -5,14 +5,12 @@ import express from 'express'
 
 const app = express()
 
-const PORT = 5173
-
 app.use(express.static(path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'dist/client'), { index: false }))
 
 app.use('*', async (_, res) => {
   try {
     const template = fs.readFileSync('./dist/client/index.html', 'utf-8')
-    const { render } = await import('./dist/server/entry-server.jsx')
+    const { render } = await import('./dist/server/entry-server.js')
 
     const html = template.replace(`<!--outlet-->`, render)
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
@@ -22,6 +20,6 @@ app.use('*', async (_, res) => {
   }
 })
 
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}.`)
+app.listen(5173, () => {
+  console.log('http://localhost:5177.')
 })

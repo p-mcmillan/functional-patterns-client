@@ -1,18 +1,31 @@
-import { useEffect } from "react";
-import { Helmet } from "react-helmet";
-import Button from "../../components/Button/Button";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react'
+import { Helmet } from 'react-helmet'
+import Button from '../../components/Button/Button'
+import { useNavigate } from 'react-router-dom'
+import ReactGA from 'react-ga4'
 
 const Practitioners = () => {
-  const navigate = useNavigate();
+  useEffect(() => {
+    ReactGA.send({
+      hitType: 'pageview',
+      page: '/practitioners',
+      title: 'Practitioners',
+    })
+  })
+  const navigate = useNavigate()
   const handleClick = () => {
-    navigate("/practitioners/brent-mcmillan");
-  };
+    ReactGA.event({
+      category: 'User Interaction',
+      action: 'Clicked Button',
+      label: 'Button Brent', // Optional
+    })
+    navigate('/practitioners/brent-mcmillan')
+  }
 
   useEffect(() => {
     // 👇️ scroll to top on page load
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [])
   return (
     <div className="flex flex-col items-center px-[15px] py-[80px] text-center min-h-screen mb-[80px] lg:mt-[80px]">
       <Helmet>
@@ -41,45 +54,26 @@ const Practitioners = () => {
           content="Unlock pain-free movement with our unique biomechanics training program in NYC. Experience greater mobility, strength, and flexibility. Join us today!"
         />
         <meta property="og:image" content="/image-black.png" />
-        <meta
-          property="og:url"
-          content="https://nycbiomechanics.com/practitioners"
-        />
+        <meta property="og:url" content="https://nycbiomechanics.com/practitioners" />
         <meta property="og:site_name" content="NYC Biomechanics" />
         <meta property="og:locale" content="en_US" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:url"
-          content="https://nycbiomechanics.com/practitioners"
-        />
+        <meta name="twitter:url" content="https://nycbiomechanics.com/practitioners" />
         <meta name="twitter:title" content="NYC Biomechanics - Practitioners" />
         <meta name="twitter:image" content="/main-logo.jpg" />
         <link rel="icon" type="image/svg+xml" href="/logo-white.svg" />
 
-        <link
-          rel="apple-touch-icon"
-          type="image/svg+xml"
-          sizes="76x76"
-          href="/nyc-biomechanics-logo.svg?width=76"
-        />
-        <link
-          rel="mask-icon"
-          href="/nyc-biomechanics-logo.svg"
-          color="#5bbad5"
-        />
-        <link
-          rel="canonical"
-          href="https://nycbiomechanics.com/practitioners"
-        />
+        <link rel="apple-touch-icon" type="image/svg+xml" sizes="76x76" href="/nyc-biomechanics-logo.svg?width=76" />
+        <link rel="mask-icon" href="/nyc-biomechanics-logo.svg" color="#5bbad5" />
+        <link rel="canonical" href="https://nycbiomechanics.com/practitioners" />
       </Helmet>
       <h2 className="py-5 text-center text-black uppercase mb-4 px-6 lg:text-[36px]">
-        We understand what it’s like to be in pain and have a passion for
-        getting you out of it.
+        We understand what it’s like to be in pain and have a passion for getting you out of it.
       </h2>
       <p className="lg:text-[18px]">
-        We are committed to helping you identify and break through physical
-        barriers to live pain-free through NYC Biomechanics.
+        We are committed to helping you identify and break through physical barriers to live pain-free through NYC
+        Biomechanics.
       </p>
 
       <div className="flex flex-col items-center p-[30px]">
@@ -92,17 +86,15 @@ const Practitioners = () => {
 
         <div className="my-5">
           <h2>Brent McMillan</h2>
-          <p className="lg:text-[18px]">
-            Human Biomechanics Specialist Level 2
-          </p>
+          <p className="lg:text-[18px]">Human Biomechanics Specialist Level 2</p>
         </div>
 
         <Button
           className=""
           onClick={handleClick}
           style={{
-            backgroundColor: "#030201",
-            color: "white",
+            backgroundColor: '#030201',
+            color: 'white',
             opacity: 0.75,
           }}
         >
@@ -110,7 +102,7 @@ const Practitioners = () => {
         </Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Practitioners;
+export default Practitioners

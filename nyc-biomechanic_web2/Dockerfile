@@ -1,18 +1,16 @@
+# Stage 1: Build the application
 FROM node:alpine
 
-WORKDIR /usr/src/app
+WORKDIR /pool/nyc-biomechanics/functional-patterns-client/nyc-biomechanic_web2
 
-COPY ../package.json ./
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
+# Copy the rest of the application
 COPY . .
 
-# Build client and server bundles
-RUN npm run build:client
-RUN npm run build:server
-
-COPY --from=build:client ../app/dist/client /nyc-biomechanic_web2
-COPY --from=build:server ../app/dist/server /nyc-biomechanic_web2
-
-CMD ["npm","run", "serve"]
+# Command to start the server
+CMD ["node", "server-prod.js"]

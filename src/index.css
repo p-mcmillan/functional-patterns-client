@@ -5,26 +5,22 @@
 @layer base {
   /* header font */
   @font-face {
-    font-family: "Bebas Neue Regular";
-    src: url("./assets/fonts/bebas_neue/BebasNeue-Regular.woff") format("woff");
-    src: url("./assets/fonts/bebas_neue/BebasNeue-Regular.woff2")
-      format("woff2");
-    src: url("./assets/fonts/bebas_neue/BebasNeue-Regular.ttf")
-      format("truetype");
-    src: url("./assets/fonts/bebas_neue/BebasNeue-Regular.otf")
-      format("opentype");
+    font-family: 'Bebas Neue Regular';
+    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.woff') format('woff');
+    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.woff2') format('woff2');
+    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.ttf') format('truetype');
+    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.otf') format('opentype');
   }
 
   /* body font */
   @font-face {
-    font-family: "Quicksand Regular";
-    src: url("./assets/fonts/quicksand/Quicksand-Regular.ttf")
-      format("truetype");
+    font-family: 'Quicksand Regular';
+    src: url('./assets/fonts/quicksand/Quicksand-Regular.ttf') format('truetype');
   }
 
   @font-face {
-    font-family: "Quicksand Light";
-    src: url("./assets/fonts/quicksand/Quicksand_Light.otf") format("opentype");
+    font-family: 'Quicksand Light';
+    src: url('./assets/fonts/quicksand/Quicksand_Light.otf') format('opentype');
   }
 }
 
@@ -62,19 +58,19 @@ body {
   background-color: white;
 }
 h1 {
-  font-family: "Bebas Neue Regular", sans-serif;
+  font-family: 'Bebas Neue Regular', sans-serif;
   letter-spacing: 2px;
   font-size: 28px;
 }
 
 h2 {
-  font-family: "Bebas Neue Regular", sans-serif;
+  font-family: 'Bebas Neue Regular', sans-serif;
   letter-spacing: 2px;
   font-size: 28px;
 }
 
 p {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   /* font-size: 16px; */
 }
 
@@ -97,53 +93,4 @@ input.error::placeholder {
 
 .text-red-900 {
   color: #991b1b; /* or any desired shade of red */
-}
-@keyframes skew-x-shakeng {
-  0% {
-    transform: skewX(-15deg);
-  }
-  5% {
-    transform: skewX(15deg);
-  }
-  10% {
-    transform: skewX(-15deg);
-  }
-  15% {
-    transform: skewX(15deg);
-  }
-  20% {
-    transform: skewX(0deg);
-  }
-  100% {
-    transform: skewX(0deg);
-  }
-}
-
-@keyframes skew-y-shakeing {
-  0% {
-    transform: skewY(-15deg);
-  }
-  5% {
-    transform: skewY(15deg);
-  }
-  10% {
-    transform: skewY(-15deg);
-  }
-  15% {
-    transform: skewY(15deg);
-  }
-  20% {
-    transform: skewY(0deg);
-  }
-  100% {
-    transform: skewY(0deg);
-  }
-}
-
-.tilt-animation {
-  animation: tilt-n-move-shaking skew-y-shakeing 1s infinite; /* Apply the animation */
-}
-
-.tilt-animation {
-  animation: tilt-n-move-shaking skew-x-shakeng 1s infinite; /* Apply the animation */
 }

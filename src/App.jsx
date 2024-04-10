@@ -21,7 +21,7 @@ import PopUp from "./components/PopUp/PopUp";
 const Results = lazy(() => import("./pages/Results/Results"));
 const Schedule = lazy(() => import("./pages/Schedule/Schedule"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
-const Pricing = lazy(() => import("./pages/Pricing/pricing"));
+const Pricing = lazy(() => import("./pages/Pricing/Pricing"));
 const GetStart = lazy(() => import("./pages/GetStart/GetStart"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs"));
 const Practitioners = lazy(() => import("./pages/Practitioners/Practitioners"));

@@ -1,13 +1,21 @@
-import { useEffect } from "react";
-import { ResultsCarousel } from "../../components/Carousel/ResultsCarousel";
-import { Helmet } from "react-helmet";
-import PropTypes from "prop-types"; // Import PropTypes
-import VideoResults from "./VideoResults";
+import { useEffect } from 'react'
+import { ResultsCarousel } from '../../components/Carousel/ResultsCarousel'
+import { Helmet } from 'react-helmet'
+import PropTypes from 'prop-types' // Import PropTypes
+import VideoResults from './VideoResults'
+import ReactGA from 'react-ga4'
 
 const Results = (props) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    ReactGA.send({
+      hitType: 'pageview',
+      page: '/results',
+      title: 'Results',
+    })
+  })
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="lg:pt-40 pt-20  bg-gradient-to-t from-[#1c1917] from-10% via-[#1c1917] via-30%   to-[#0c0a09] to-80%">
       <Helmet>
@@ -41,31 +49,17 @@ const Results = (props) => {
         <meta property="og:locale" content="en_US" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:url"
-          content="https://nycbiomechanics.com/results"
-        />
+        <meta name="twitter:url" content="https://nycbiomechanics.com/results" />
         <meta name="twitter:title" content="Results - NYC Biomechanics" />
         <meta name="twitter:image" content="/main-logo.jpg" />
         <link rel="icon" type="image/svg+xml" href="/logo-white.svg" />
 
-        <link
-          rel="apple-touch-icon"
-          type="image/svg+xml"
-          sizes="76x76"
-          href="/nyc-biomechanics-logo.svg?width=76"
-        />
-        <link
-          rel="mask-icon"
-          href="/nyc-biomechanics-logo.svg"
-          color="#5bbad5"
-        />
+        <link rel="apple-touch-icon" type="image/svg+xml" sizes="76x76" href="/nyc-biomechanics-logo.svg?width=76" />
+        <link rel="mask-icon" href="/nyc-biomechanics-logo.svg" color="#5bbad5" />
         <link rel="canonical" href="https://nycbiomechanics.com/results" />
       </Helmet>
       <div className="mt-6">
-        <h1 className="text-center uppercase font-bold text-3xl mb-5 lg:text-6xl text-white">
-          Photo Results
-        </h1>
+        <h1 className="text-center uppercase font-bold text-3xl mb-5 lg:text-6xl text-white">Photo Results</h1>
         {/* mobile */}
 
         <div className="mx-10 md:px-24 z-0 text-center text-base">
@@ -73,21 +67,19 @@ const Results = (props) => {
             <div key={contentIndex}>{/* <h2>{content.result}</h2> */}</div>
           ))}
           <ResultsCarousel photoResultsData={props.photoResultsData} />
-          <h1 className="text-center uppercase font-bold text-3xl mb-5 lg:text-6xl text-white">
-            Video Results
-          </h1>
+          <h1 className="text-center uppercase font-bold text-3xl mb-5 lg:text-6xl text-white">Video Results</h1>
 
           <VideoResults videoResultsData={props.videoResultsData} />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 // Define PropTypes for your Results component
 Results.propTypes = {
   photoResultsData: PropTypes.array.isRequired, // Example: Specify the expected type and make it required
   videoResultsData: PropTypes.array.isRequired,
-};
+}
 
-export default Results;
+export default Results
