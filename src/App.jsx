@@ -1,32 +1,32 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState } from "react";
-import { lazy, Suspense } from "react";
-import { Spinner } from "@material-tailwind/react";
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { useState } from 'react';
+import { lazy, Suspense } from 'react';
+//import { Spinner } from '@material-tailwind/react';
 
 import {
   resultsPhoto,
   resultsVideo,
   heroVideo,
   infoVideo,
-} from "./constants/constants";
-import { pricingMenu } from "./constants/pricing";
-import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home/Home";
+} from './constants/constants';
+import { pricingMenu } from './constants/pricing';
+import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Home from './pages/Home/Home';
 
-import Footer from "./components/Footer/Footer";
+import Footer from './components/Footer/Footer';
 
-import PopUp from "./components/PopUp/PopUp";
+import PopUp from './components/PopUp/PopUp';
 
-const Results = lazy(() => import("./pages/Results/Results"));
-const Schedule = lazy(() => import("./pages/Schedule/Schedule"));
-const Contact = lazy(() => import("./pages/Contact/Contact"));
-const Pricing = lazy(() => import("./pages/Pricing/Pricing"));
-const GetStart = lazy(() => import("./pages/GetStart/GetStart"));
-const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs"));
-const Practitioners = lazy(() => import("./pages/Practitioners/Practitioners"));
-const Brent = lazy(() => import("./pages/Practitioners/Brent"));
-const Reviews = lazy(() => import("./pages/Reviews/Reviews"));
+const Results = lazy(() => import('./pages/Results/Results'));
+const Schedule = lazy(() => import('./pages/Schedule/Schedule'));
+const Contact = lazy(() => import('./pages/Contact/Contact'));
+const Pricing = lazy(() => import('./pages/Pricing/Pricing'));
+const GetStart = lazy(() => import('./pages/GetStart/GetStart'));
+const AboutUs = lazy(() => import('./pages/AboutUs/AboutUs'));
+const Practitioners = lazy(() => import('./pages/Practitioners/Practitioners'));
+const Brent = lazy(() => import('./pages/Practitioners/Brent'));
+const Reviews = lazy(() => import('./pages/Reviews/Reviews'));
 
 function App() {
   const [photoResultsData] = useState(resultsPhoto);
@@ -45,7 +45,6 @@ function App() {
           fallback={
             <div className="flex justify-center items-center h-screen bg-black">
               {/* <Spinner className="h-36 w-36 text-white" /> */}
-              loading...
             </div>
           }
         >
@@ -81,6 +80,8 @@ function App() {
             <Route path="/practitioners" element={<Practitioners />} />
             <Route path="/practitioners/brent-mcmillan" element={<Brent />} />
             <Route path="reviews" element={<Reviews />} />
+            <Route path="*" element={<Navigate to="/" />} />{' '}
+            {/* Redirect to home */}
           </Routes>
         </Suspense>
         <Footer />

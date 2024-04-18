@@ -2,7 +2,8 @@ const resultsPhoto = [
   {
     id: '01',
     result: 'back',
-    treatment: 'Former Olympic swimmer for the Dominican Republic who had chronic back and shoulder pain.',
+    treatment:
+      'Former Olympic swimmer for the Dominican Republic who had chronic back and shoulder pain.',
     images: [
       {
         id: '01-01',
@@ -29,7 +30,8 @@ const resultsPhoto = [
   {
     id: '02',
     result: 'neck',
-    treatment: 'From kypho lordotic to neutral spine allowing her to become a better mover and dancer',
+    treatment:
+      'From kypho lordotic to neutral spine allowing her to become a better mover and dancer',
     images: [
       {
         id: '02-01',
@@ -111,50 +113,25 @@ const resultsPhoto = [
       },
     ],
   },
-]
+];
 
 const heroVideo = [
   {
-    id: 'v-01',
+    id: 'hv-04',
     video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0001_liiodw',
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/dfy4x8ge4gchs4hgkoa2',
   },
   {
-    id: 'v-03',
+    id: 'hv-01',
     video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0003_qcyij7',
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/hero-01_mi8omd',
   },
   {
-    id: 'v-04',
+    id: 'hv-02',
     video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0004_rj22da',
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/hero-02_gontls',
   },
-  {
-    id: 'v-06',
-    video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0006_w8qpuq',
-  },
-  {
-    id: 'v-07',
-    video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0007_zppw8c',
-  },
-  {
-    id: 'v-09',
-    video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0009_spdeud',
-  },
-  {
-    id: 'v-10',
-    video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/aa9080ed_uaxthj',
-  },
-  {
-    id: 'v-11',
-    video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/330797be_hvm6pb',
-  },
-]
+];
 
 const resultsVideo = [
   {
@@ -184,22 +161,52 @@ const resultsVideo = [
       },
     ],
   },
-]
+];
 
-const pricing = [{}]
+const pricing = [{}];
 
 const infoVideo = [
   {
     id: 'info01',
 
     video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/info-12.01.22_c67dc742_sbggs5',
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/dxliimw8ku10eknagmxo',
   },
   {
     id: 'info02',
     video:
-      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/info-2.01.58_9e84a80b_hzqjqw',
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/z1fxgtqhomor6zywxuvf',
   },
-]
+  {
+    id: 'v-03',
+    video:
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0003_qcyij7',
+  },
+];
 
-export { resultsPhoto, resultsVideo, heroVideo, pricing, infoVideo }
+const aboutVideo = [
+  {
+    id: 'v-01',
+    video:
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0001_liiodw',
+  },
+  {
+    id: 'v-03',
+    video:
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0003_qcyij7',
+  },
+  {
+    id: 'v-03',
+    video:
+      'https://res.cloudinary.com/dprfd8p6y/video/upload/f_auto:video,q_auto/v1/nyc-biomechanics/videos/VIDWA0003_qcyij7',
+  },
+];
+
+export {
+  resultsPhoto,
+  resultsVideo,
+  heroVideo,
+  pricing,
+  infoVideo,
+  aboutVideo,
+};
