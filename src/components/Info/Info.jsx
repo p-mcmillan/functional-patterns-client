@@ -26,7 +26,7 @@ const Info = forwardRef(({ infoVideoData }, ref) => {
   return (
     <div
       id="about"
-      className=" snap-center bg-black h-screen relative flex justify-center items-center"
+      className=" snap-center bg-black lg:h-screen relative flex justify-center items-center"
       ref={ref}
     >
       {/* Video Container */}
@@ -37,7 +37,7 @@ const Info = forwardRef(({ infoVideoData }, ref) => {
         muted
         playsInline // Play inline on iOS
         webkit-playsinline="true" // Older iOS support
-        className="w-full h-screen lg:h-[calc(100vh)] object-cover grayscale"
+        className="w-full h-[50%] lg:h-[calc(100vh)] object-cover grayscale"
       />
 
       {/* Content */}

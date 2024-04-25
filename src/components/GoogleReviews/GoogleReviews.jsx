@@ -1,6 +1,6 @@
-import { ElfsightWidget } from "react-elfsight-widget";
+import { ElfsightWidget } from 'react-elfsight-widget';
 
-const widgetId = import.meta.env.VITE_APP_widgetId;
+const widgetId = import.meta.env.VITE_APP_widgetId_REVIEWS;
 
 const GoogleReviews = () => {
   return (

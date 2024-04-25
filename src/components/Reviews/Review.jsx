@@ -1,11 +1,11 @@
-import { Rating } from "@material-tailwind/react";
-import PropTypes from "prop-types";
+import { Rating } from '@material-tailwind/react';
+import PropTypes from 'prop-types';
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    month: "2-digit",
-    day: "2-digit",
-    year: "numeric",
+  return date.toLocaleDateString('en-US', {
+    month: '2-digit',
+    day: '2-digit',
+    year: 'numeric',
   });
 };
 
@@ -17,17 +17,6 @@ const Review = (props) => {
   return (
     <div className=" mb-7  border border-black">
       <article className="py-5 mx-4 ">
-        <div className="flex items-center mb-1">
-          <div className="font-medium dark:text-white">
-            <p className="text-[16px]">{contact_name}</p>
-          </div>
-        </div>
-
-        <p className="text-[12px] mb-2">Reviewed on {formattedDate}</p>
-
-        <div>
-          <p className="text-[16px]">{review}</p>
-        </div>
         <div className="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
           <Rating
             style={{ maxWidth: 180 }}
@@ -35,6 +24,17 @@ const Review = (props) => {
             readonly
             className="rating-disabled"
           />
+        </div>
+        <div className="flex justify-between mb-1">
+          <div className="font-medium dark:text-white">
+            <p className=" font-semibold text-[16px]">{contact_name}</p>
+          </div>
+          <p className=" font-semibold text-[16px] mb-2">
+            Reviewed on {formattedDate}
+          </p>
+        </div>
+        <div>
+          <p className="text-[16px]">{review}</p>
         </div>
       </article>
     </div>

@@ -155,7 +155,9 @@ const Reviews = () => {
       <div className="py-5 mt-[75px] min-h-screen mx-4">
         <Helmet>
           <meta charset="UTF-8" />
-          <title>NYC Biomechanics - Reviews</title>
+          <title>
+            Reviews - NYC Biomechanics - Functional Patterns Training in NYC
+          </title>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
@@ -163,7 +165,7 @@ const Reviews = () => {
           <meta name="robots" content="index,follow" />
           <meta
             name="description"
-            content="Unlock pain-free movement with our unique biomechanics training program in NYC. Experience greater mobility, strength, and flexibility. Join us today!"
+            content="Unlock pain-free movement with our unique Functional Patterns Training program in NYC. Experience greater mobility, strength, and flexibility. Join us today!"
           />
           <meta
             name="keywords"
@@ -173,41 +175,65 @@ const Reviews = () => {
           <meta name="copyright" content="Copyright © 2024 NYC Biomechanics" />
           <meta name="language" content="English" />
           <meta name="Classification" content="Business" />
-          <meta name="url" content="https://nycbiomechanics.com/" />
+          <meta name="url" content="https://www.nycbiomechanics.com/reviews" />
 
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="NYC Biomechanics - Reviews" />
+          <meta
+            property="og:title"
+            content="Reviews - NYC Biomechanics - Functional Patterns Training in NYC"
+          />
           <meta
             property="og:description"
-            content="Unlock pain-free movement with our unique biomechanics training program in NYC. Experience greater mobility, strength, and flexibility. Join us today!"
+            content="Unlock pain-free movement with our unique Functional Patterns Training program in NYC. Experience greater mobility, strength, and flexibility. Join us today!"
           />
-          <meta property="og:image" content="/image-black.png" />
-          <meta property="og:url" content="https://nycbiomechanics.com/" />
+          <meta
+            property="og:image"
+            content="https://www.nycbiomechanics.com/image-black.png"
+          />
+          <meta
+            property="og:url"
+            content="https://www.nycbiomechanics.com/reviews"
+          />
           <meta property="og:site_name" content="NYC Biomechanics" />
           <meta property="og:locale" content="en_US" />
 
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:url" content="https://nycbiomechanics.com/" />
-          <meta name="twitter:title" content="NYC Biomechanics - Reviews" />
-          <meta name="twitter:image" content="/main-logo.jpg" />
-          <link rel="icon" type="image/svg+xml" href="/logo-white.svg" />
+          <meta
+            name="twitter:url"
+            content="https://www.nycbiomechanics.com/reviews"
+          />
+          <meta
+            name="twitter:title"
+            content="Reviews - NYC Biomechanics - Functional Patterns Training in NYC"
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.nycbiomechanics.com/main-logo.jpg"
+          />
+          <link
+            rel="icon"
+            type="image/svg+xml"
+            href="https://www.nycbiomechanics.com/logo-white.svg"
+          />
 
           <link
             rel="apple-touch-icon"
             type="image/svg+xml"
             sizes="76x76"
-            href="/nyc-biomechanics-logo.svg?width=76"
+            href="https://www.nycbiomechanics.com/nyc-biomechanics-logo.svg?width=76"
           />
           <link
             rel="mask-icon"
-            href="/nyc-biomechanics-logo.svg"
+            href="https://www.nycbiomechanics.com/nyc-biomechanics-logo.svg"
             color="#5bbad5"
           />
-          <link rel="canonical" href="https://nycbiomechanics.com/" />
+          <link
+            rel="canonical"
+            href="https://www.nycbiomechanics.com/reviews"
+          />
         </Helmet>
         <div className="py-5 n mx-4">
-          <Helmet>{/* Helmet meta tags */}</Helmet>
-          <h1 className="uppercase items-center text-center mb-5">
+          <h1 className="uppercase items-center text-center mb-5 lg:text-[36px]">
             what our customers say
           </h1>
           <div className="items-center text-center">

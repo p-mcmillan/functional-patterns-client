@@ -16,7 +16,7 @@ import Home from './pages/Home/Home';
 
 import Footer from './components/Footer/Footer';
 
-import PopUp from './components/PopUp/PopUp';
+//import PopUp from './components/PopUp/PopUp';
 
 const Results = lazy(() => import('./pages/Results/Results'));
 const Schedule = lazy(() => import('./pages/Schedule/Schedule'));
@@ -27,6 +27,8 @@ const AboutUs = lazy(() => import('./pages/AboutUs/AboutUs'));
 const Practitioners = lazy(() => import('./pages/Practitioners/Practitioners'));
 const Brent = lazy(() => import('./pages/Practitioners/Brent'));
 const Reviews = lazy(() => import('./pages/Reviews/Reviews'));
+const Social = lazy(() => import('./pages/Social/Social'));
+const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 
 function App() {
   const [photoResultsData] = useState(resultsPhoto);
@@ -70,23 +72,24 @@ function App() {
               }
             />
             <Route path="/schedule" element={<Schedule />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact-us" element={<Contact />} />
             <Route
               path="/pricing"
               element={<Pricing pricingData={pricingData} />}
             />
-            <Route path="/about" element={<AboutUs />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="/faq" element={<GetStart />} />
             <Route path="/practitioners" element={<Practitioners />} />
             <Route path="/practitioners/brent-mcmillan" element={<Brent />} />
-            <Route path="reviews" element={<Reviews />} />
-            <Route path="*" element={<Navigate to="/" />} />{' '}
-            {/* Redirect to home */}
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="/socials" element={<Social />} />
+            <Route path="/sign-up" element={<SignUp />} />
           </Routes>
         </Suspense>
         <Footer />
       </BrowserRouter>
-      <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
+      {/* <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} /> */}
     </div>
   );
 }

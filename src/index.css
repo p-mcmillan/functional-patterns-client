@@ -7,15 +7,19 @@
   @font-face {
     font-family: 'Bebas Neue Regular';
     src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.woff') format('woff');
-    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.woff2') format('woff2');
-    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.ttf') format('truetype');
-    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.otf') format('opentype');
+    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.woff2')
+      format('woff2');
+    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.ttf')
+      format('truetype');
+    src: url('./assets/fonts/bebas_neue/BebasNeue-Regular.otf')
+      format('opentype');
   }
 
   /* body font */
   @font-face {
     font-family: 'Quicksand Regular';
-    src: url('./assets/fonts/quicksand/Quicksand-Regular.ttf') format('truetype');
+    src: url('./assets/fonts/quicksand/Quicksand-Regular.ttf')
+      format('truetype');
   }
 
   @font-face {
@@ -47,16 +51,6 @@ body {
 
 /* NOT WORKING FIGURE OUT LATER */
 
-/* White color for navigation arrows */
-.swiper-button-next,
-.swiper-button-prev {
-  color: white;
-}
-
-/* White color for pagination dots */
-.swiper-pagination-bullet {
-  background-color: white;
-}
 h1 {
   font-family: 'Bebas Neue Regular', sans-serif;
   letter-spacing: 2px;
@@ -93,4 +87,34 @@ input.error::placeholder {
 
 .text-red-900 {
   color: #991b1b; /* or any desired shade of red */
+}
+
+/* Assuming these are your Swiper navigation and pagination styles */
+.swiper-button-next,
+.swiper-button-prev {
+  /* Change navigation arrow color to white */
+  color: white !important;
+}
+
+.swiper-pagination-bullet {
+  /* Change pagination bullet color to white */
+  background-color: white !important;
+}
+
+/* Additional styling for pagination if needed */
+.swiper-pagination {
+  /* Center pagination */
+  text-align: center;
+  /* Change pagination position */
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Change pagination color */
+  color: white;
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet-active {
+  /* Change active pagination bullet color */
+  background-color: white;
 }

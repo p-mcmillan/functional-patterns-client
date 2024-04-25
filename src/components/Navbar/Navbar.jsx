@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import Logo from "../../assets/logos/transparent-logo.svg";
-import { Link } from "react-router-dom";
-import NavLinks from "./NavLinks";
-import Button from "../Button/Button";
+import { useState, useEffect } from 'react';
+import Logo from '/logo-white.svg';
+import { Link } from 'react-router-dom';
+import NavLinks from './NavLinks';
+import Button from '../Button/Button';
 
 let timer; // Declare the timer variable here
 const Navbar = () => {
@@ -11,7 +11,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false); // State to control mobile menu
 
   const controlNavbar = () => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       setShow(true); // Always show the Navbar when scrolling
       clearTimeout(timer); // Reset the timer
 
@@ -26,18 +26,18 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
 
       // Cleanup function
       return () => {
-        window.removeEventListener("scroll", controlNavbar);
+        window.removeEventListener('scroll', controlNavbar);
       };
     }
   }, [lastScrollY]);
 
   const handleClick = () => {
-    console.log("Button was clicked!");
+    console.log('Button was clicked!');
   };
 
   // Function to close the mobile menu
@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
     <nav
       className={`active ${
-        show && "hidden"
+        show && 'hidden'
       } bg-[#030201] opacity-90 fixed w-full top-0 z-50 text-white`}
     >
       <div className="flex items-center font-medium justify-around">
@@ -67,7 +67,7 @@ const Navbar = () => {
           >
             <ion-icon
               className="mx-auto"
-              name={`${open ? "close" : "menu"}`}
+              name={`${open ? 'close' : 'menu'}`}
             ></ion-icon>
           </div>
         </div>
@@ -81,23 +81,23 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <NavLinks closeMobileMenu={closeMobileMenu} />{" "}
+          <NavLinks closeMobileMenu={closeMobileMenu} />{' '}
           {/* Pass the closeMobileMenu function */}
           <li>
             <Link
-              to="/contact"
+              to="/contact-us"
               className="py-7 px-3 inline-block font-BebasNeue text-[28px] tracking-[2px]"
               onClick={closeMobileMenu}
             >
-              Contact
+              Contact Us
             </Link>
           </li>
         </ul>
         <div className="md:block hidden">
-          <Link to="/contact">
+          <Link to="/sign-up">
             <Button
               onClick={handleClick}
-              style={{ backgroundColor: "blue", color: "white" }}
+              style={{ backgroundColor: 'blue', color: 'white' }}
             >
               sign up!
             </Button>
@@ -107,7 +107,7 @@ const Navbar = () => {
         <ul
           className={`
         md:hidden bg-[#030201] fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
-        duration-500 ${open ? "left-0" : "left-[-100%]"}
+        duration-500 ${open ? 'left-0' : 'left-[-100%]'}
         `}
         >
           <li className="text-[28px] font-BebasNeue tracking-[2px]">
@@ -119,22 +119,22 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <NavLinks closeMobileMenu={closeMobileMenu} />{" "}
+          <NavLinks closeMobileMenu={closeMobileMenu} />{' '}
           {/* Pass the closeMobileMenu function */}
           <li className="text-[28px] font-BebasNeue tracking-[2px]">
             <Link
-              to="/contact"
+              to="/contact-us"
               className="py-7 px-3 inline-block "
               onClick={closeMobileMenu}
             >
-              Contact
+              Contact Us
             </Link>
           </li>
           <div className="py-5">
-            <Link to="/contact">
+            <Link to="/sign-up">
               <Button
                 onClick={closeMobileMenu}
-                style={{ backgroundColor: "blue", color: "white" }}
+                style={{ backgroundColor: 'blue', color: 'white' }}
               >
                 sign up!
               </Button>

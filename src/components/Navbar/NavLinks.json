@@ -27,11 +27,15 @@
       },
       {
         "Head": "About Us",
-        "to": "/about"
+        "to": "/about-us"
       },
       {
         "Head": "Reviews",
         "to": "/reviews"
+      },
+      {
+        "Head": "Social",
+        "to": "/social"
       }
     ]
   }

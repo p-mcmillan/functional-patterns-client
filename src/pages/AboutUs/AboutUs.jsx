@@ -1,36 +1,38 @@
-import { useEffect } from 'react'
-import Button from '../../components/Button/Button'
-import { useNavigate } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
-import ReactGA from 'react-ga4'
+import { useEffect } from 'react';
+import Button from '../../components/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import ReactGA from 'react-ga4';
 
 const AboutUs = () => {
   useEffect(() => {
     ReactGA.send({
       hitType: 'pageview',
-      page: '/about',
+      page: '/about-us',
       title: 'About',
-    })
-  })
-  const navigate = useNavigate()
+    });
+  });
+  const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/contact')
-  }
+    navigate('/sign-up');
+  };
 
   useEffect(() => {
     // 👇️ scroll to top on page load
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-  }, [])
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
   return (
     <div className="flex flex-col items-center mx-[15px] py-[80px] text-center h-full ">
       <Helmet>
         <meta charset="UTF-8" />
-        <title>About Us - NYC Biomechanics</title>
+        <title>
+          About Us - NYC Biomechanics - Functional Patterns Training in NYC
+        </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index,follow" />
         <meta
           name="description"
-          content="Unlock pain-free movement with our unique biomechanics training program in NYC. Experience greater mobility, strength, and flexibility. Join us today!"
+          content="Unlock pain-free movement with our unique Functional Patterns Training program in NYC. Experience greater mobility, strength, and flexibility. Join us today!"
         />
         <meta
           name="keywords"
@@ -40,28 +42,52 @@ const AboutUs = () => {
         <meta name="copyright" content="Copyright © 2024 NYC Biomechanics" />
         <meta name="language" content="English" />
         <meta name="Classification" content="Business" />
-        <meta name="url" content="https://nycbiomechanics.com/" />
+        <meta name="url" content="https://www.nycbiomechanics.com/about-us" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="NYC Biomechanics - About Us" />
+        <meta property="og:title" content="About Us " />
         <meta
           property="og:description"
           content="Unlock pain-free movement with our unique biomechanics training program in NYC. Experience greater mobility, strength, and flexibility. Join us today!"
         />
-        <meta property="og:image" content="/image-black.png" />
-        <meta property="og:url" content="https://nycbiomechanics.com/" />
-        <meta property="og:site_name" content="NYC Biomechanics" />
+        <meta
+          property="og:image"
+          content="https://www.nycbiomechanics.com/main-logo.jpg"
+        />
+        <meta
+          property="og:url"
+          content="https://www.nycbiomechanics.com/about-us"
+        />
+        <meta
+          property="og:site_name"
+          content="About Us - NYC Biomechanics - Functional Patterns Training in NYC"
+        />
         <meta property="og:locale" content="en_US" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://nycbiomechanics.com/" />
-        <meta name="twitter:title" content="NYC Biomechanics - About Us" />
+        <meta
+          name="twitter:url"
+          content="https://www.nycbiomechanics.com/about-us"
+        />
+        <meta
+          name="twitter:title"
+          content="About Us - NYC Biomechanics - Functional Patterns Training in NYC"
+        />
         <meta name="twitter:image" content="/main-logo.jpg" />
         <link rel="icon" type="image/svg+xml" href="/logo-white.svg" />
 
-        <link rel="apple-touch-icon" type="image/svg+xml" sizes="76x76" href="/nyc-biomechanics-logo.svg?width=76" />
-        <link rel="mask-icon" href="/nyc-biomechanics-logo.svg" color="#5bbad5" />
-        <link rel="canonical" href="https://nycbiomechanics.com/" />
+        <link
+          rel="apple-touch-icon"
+          type="image/svg+xml"
+          sizes="76x76"
+          href="/nyc-biomechanics-logo.svg?width=76"
+        />
+        <link
+          rel="mask-icon"
+          href="/nyc-biomechanics-logo.svg"
+          color="#5bbad5"
+        />
+        <link rel="canonical" href="https://www.nycbiomechanics.com/about-us" />
       </Helmet>
 
       <div>
@@ -86,40 +112,49 @@ const AboutUs = () => {
           </h2>
           <div className=" mb-[16px] text-black pb-[24px] lg:text-[18px] text-[16px] ">
             <p className="mb-[15px] text-left">
-              Unlike any other point in human history, the main health crisis we face is the imbalance within our
-              society and our disconnection from nature. Moving away from natural practices and shifting towards a more
-              modern way of living has greatly affected our ability to move correctly and stay out of pain.
+              Unlike any other point in human history, the main health crisis we
+              face is the imbalance within our society and our disconnection
+              from nature. Moving away from natural practices and shifting
+              towards a more modern way of living has greatly affected our
+              ability to move correctly and stay out of pain.
             </p>
             <p className="mb-[15px] text-left">
-              So, how can we achieve balance in a world filled with imbalance? The answer is straightforward: our health
-              depends on how well we adapt to the natural environment. The more harmoniously we coexist with nature, the
-              healthier and more resilient we become. For humans, this means bringing us back to the beneficial aspects
-              of our evolutionary blueprint that made us healthy to begin with.
+              So, how can we achieve balance in a world filled with imbalance?
+              The answer is straightforward: our health depends on how well we
+              adapt to the natural environment. The more harmoniously we coexist
+              with nature, the healthier and more resilient we become. For
+              humans, this means bringing us back to the beneficial aspects of
+              our evolutionary blueprint that made us healthy to begin with.
             </p>
             <p className="mb-[15px] text-left"></p>
             <p className="mb-[15px] text-left">
               <span className="font-bold">THE BLUEPRINT</span>
               <br />
-              There’s an evolutionary blueprint to how all organisms work and Functional Patterns has been cracking the
-              code in human movement for nearly 15 years. Resulting from tens of thousands of hours in testing, we have
-              pioneered the FP methodology, syncing the physics of our natural environment to our health better than any
-              other system out there.
+              There’s an evolutionary blueprint to how all organisms work and
+              Functional Patterns has been cracking the code in human movement
+              for nearly 15 years. Resulting from tens of thousands of hours in
+              testing, we have pioneered the FP methodology, syncing the physics
+              of our natural environment to our health better than any other
+              system out there.
             </p>
             <p className="mb-[15px] text-left">
-              Our conclusion has been to train humans according to their biological movement characteristics: Standing,
-              Walking, Running, and Throwing — The “FP Big 4”. By optimizing these four human functions, achieving
-              better health is not a gamble, but an inevitability. This is what it means to train Functional Patterns!
+              Our conclusion has been to train humans according to their
+              biological movement characteristics: Standing, Walking, Running,
+              and Throwing — The “FP Big 4”. By optimizing these four human
+              functions, achieving better health is not a gamble, but an
+              inevitability. This is what it means to train Functional Patterns!
             </p>
-            <p className="mb-[15px] text-left">&quot;We take the guesswork out of taking care of your body&quot;</p>
+            <p className="mb-[15px] text-left">
+              &quot;We take the guesswork out of taking care of your body&quot;
+            </p>
 
             <div className="lg:flex">
               <Button
                 className="lg:self-start"
                 onClick={handleClick}
                 style={{
-                  backgroundColor: '#030201',
+                  backgroundColor: 'black',
                   color: 'white',
-                  opacity: 0.75,
                 }}
               >
                 get started
@@ -129,7 +164,7 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;

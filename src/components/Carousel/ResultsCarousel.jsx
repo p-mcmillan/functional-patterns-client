@@ -1,9 +1,9 @@
 //import { useRef, useEffect } from "react";
-import { register } from "swiper/element/bundle";
-import PropTypes from "prop-types";
+import { register } from 'swiper/element/bundle';
+import PropTypes from 'prop-types';
 //import PopUp from "../../components/PopUp/PopUp";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 
 register();
 
@@ -40,11 +40,11 @@ export const ResultsCarousel = ({ photoResultsData }) => {
 
   return (
     <div className="lg:flex flex-wrap pb-10 gap-4 justify-around">
-      <div className="mt-10 lg:max-w-[20%]">{renderResults("back")}</div>
-      <div className="mt-10 lg:max-w-[20%]">{renderResults("neck")}</div>
-      <div className="mt-10 lg:max-w-[20%]">{renderResults("toes")}</div>
-      <div className="mt-10 lg:max-w-[20%]">{renderResults("sholder")}</div>
-      <div className="mt-10 lg:max-w-[20%]">{renderResults("arm")}</div>
+      <div className="mt-10 lg:max-w-[20%]">{renderResults('back')}</div>
+      <div className="mt-10 lg:max-w-[20%]">{renderResults('neck')}</div>
+      <div className="mt-10 lg:max-w-[20%]">{renderResults('toes')}</div>
+      <div className="mt-10 lg:max-w-[20%]">{renderResults('sholder')}</div>
+      <div className="mt-10 lg:max-w-[20%]">{renderResults('arm')}</div>
     </div>
   );
 };

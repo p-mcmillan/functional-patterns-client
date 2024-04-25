@@ -1,31 +1,32 @@
-import { useEffect, useState } from "react";
-import Logo from "/transparent-logo.svg";
+import { useEffect, useState } from 'react';
+import Logo from '/logo-white.svg';
 
 const Footer = () => {
   const iconsTab = [
     {
       icon: <ion-icon name="logo-instagram"></ion-icon>,
-      url: "https://instagram.com/brentmcmillan_?igshid=MzRlODBiNWFlZA==",
+      url: 'https://instagram.com/brentmcmillan_',
     },
-    {
-      icon: <ion-icon name="logo-youtube"></ion-icon>,
-      url: "https://www.youtube.com/",
-    },
-    {
-      icon: <ion-icon name="logo-google"></ion-icon>,
-      url: "https://www.google.ca/",
-    },
+    // {
+    //   icon: <ion-icon name="logo-youtube"></ion-icon>,
+    //   url: 'https://www.youtube.com/',
+    // },
+    // {
+    //   icon: <ion-icon name="logo-google"></ion-icon>,
+    //   url: 'https://www.google.ca/',
+    // },
     {
       icon: <ion-icon name="logo-facebook"></ion-icon>,
-      url: "https://www.facebook.com/brent.mcmillan.12",
+      url: 'https://www.facebook.com/brent.mcmillan.12',
     },
   ];
-  const email = "info@nycbiomechanics.com                             ";
-  const subject = "training";
-  const body = "Hello,";
-  // const phone = "555.555.555";
+  const email = 'info@nycbiomechanics.com                             ';
+  const subject = 'training';
+  const body = 'Hello,';
+  const phone = '+1-646-934-5979';
+  const phone2 = '646 934 5979';
 
-  const [mapLink, setMapLink] = useState("");
+  const [mapLink, setMapLink] = useState('');
 
   useEffect(() => {
     function openMaps() {
@@ -84,7 +85,7 @@ const Footer = () => {
             <div className="flex flex-col  md:p-0 py-4 gap-8">
               <img src={Logo} alt="footer_logo" className="w-[15rem]" />
               {/* socials */}
-              <div className="flex gap-7 text-[18px] text-[#646464] justify-center md:justify-start">
+              <div className="flex gap-7 text-[18px] text-white justify-center md:justify-start">
                 {iconsTab.map(({ icon, url }, index) => {
                   return (
                     <a
@@ -96,7 +97,7 @@ const Footer = () => {
                       <div
                         //   CHANGE BACKGROUND
                         className="text-2xl p-2 rounded-full hover:bg-white hover:text-black"
-                        style={{ transition: "all 0.3s" }}
+                        style={{ transition: 'all 0.3s' }}
                       >
                         {icon}
                       </div>
@@ -104,20 +105,20 @@ const Footer = () => {
                   );
                 })}
               </div>
-              <p className="text-sm text-[#646464] w-[14.876rem]">
+              {/* <p className="text-sm text-[#646464] w-[14.876rem]">
                 All rights reserved. <br />
                 NYC Biomechanics. © {new Date().getFullYear()}
-              </p>
+              </p> */}
             </div>
 
             {/* middle div */}
             <div className="w-[14.876rem] flex flex-col relative pb-5 text-[#646464] lg:text-[18px]">
-              <p className="font-bold footer-main text-lg uppercase lg:text-[18px]">
+              <p className="font-bold footer-main text-lg uppercase lg:text-[18px] text-white">
                 Contact
               </p>
 
-              {/* <p className="font-semibold">Phone</p>
-              <a href={`tel:${phone}`}>{phone}</a> */}
+              <p className="font-semibold">Phone</p>
+              <a href={`tel:${phone}`}>{phone2}</a>
               <p className="font-semibold lg:text-[18px]">Email</p>
 
               <a href={`mailto:${email}?subject=${subject}&body=${body}`}>
@@ -126,7 +127,7 @@ const Footer = () => {
             </div>
             {/* right div */}
             <div className="flex flex-col relative w-[14.876rem] text-[#646464] pb-5 lg:text-[18px]">
-              <p className=" font-bold footer-main text-lg uppercase lg:text-[18px]">
+              <p className=" font-bold footer-main text-lg text-white uppercase lg:text-[18px]">
                 Working Hours
               </p>
               <p className="font-semibold">Monday - Friday:</p>
@@ -139,13 +140,19 @@ const Footer = () => {
 
             {/* middle div */}
             <div className="flex flex-col relative w-[14.876rem] text-[#646464] pb-5 lg:text-[18px]">
-              <p className=" font-bold footer-main text-lg lg:text-[18px] uppercase">
+              <p className=" font-bold footer-main text-lg text-white lg:text-[18px] uppercase">
                 Location
               </p>
               <div className="font-semibold">{mapLink}</div>
             </div>
             <span></span>
           </div>
+        </div>
+        {/* Rights reserved */}
+        <div className="flex justify-center">
+          <p className="text-sm text-[#646464]">
+            © {new Date().getFullYear()} NYC Biomechanics. All rights reserved.
+          </p>
         </div>
       </footer>
     </>

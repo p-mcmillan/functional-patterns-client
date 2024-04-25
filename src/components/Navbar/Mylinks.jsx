@@ -1,11 +1,11 @@
 export const links = [
   {
-    name: "Results",
+    name: 'Results',
     submenu: true,
     sublink: [
       {
-        Head: "Overall Results",
-        to: "/results",
+        Head: 'Overall Results',
+        to: '/results',
       },
       // {
       //   Head: "Backpain",
@@ -18,28 +18,32 @@ export const links = [
     ],
   },
   {
-    name: "About",
+    name: 'About',
     submenu: true,
     sublink: [
       {
-        Head: "Practitioners",
-        to: "/practitioners",
+        Head: 'Practitioners',
+        to: '/practitioners',
       },
       {
-        Head: "Pricing",
-        to: "/pricing",
+        Head: 'Pricing',
+        to: '/pricing',
       },
       {
-        Head: "FAQ",
-        to: "/faq",
+        Head: 'FAQ',
+        to: '/faq',
       },
       {
-        Head: "About Us",
-        to: "/about",
+        Head: 'About Us',
+        to: '/about-us',
       },
       {
-        Head: "Reviews",
-        to: "/reviews",
+        Head: 'Reviews',
+        to: '/reviews',
+      },
+      {
+        Head: 'Socials',
+        to: '/socials',
       },
     ],
   },
