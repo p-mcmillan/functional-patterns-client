@@ -27,11 +27,9 @@ const Review = (props) => {
         </div>
         <div className="flex justify-between mb-1">
           <div className="font-medium dark:text-white">
-            <p className=" font-semibold text-[16px]">{contact_name}</p>
+            <p className="text-[16px]">{contact_name}</p>
           </div>
-          <p className=" font-semibold text-[16px] mb-2">
-            Reviewed on {formattedDate}
-          </p>
+          <p className="text-[16px] mb-2">Reviewed on {formattedDate}</p>
         </div>
         <div>
           <p className="text-[16px]">{review}</p>
