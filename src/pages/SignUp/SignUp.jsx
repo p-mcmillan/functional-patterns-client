@@ -1,15 +1,15 @@
-import axios from "axios";
-import Button from "../../components/Button/Button";
+import axios from 'axios';
+import Button from '../../components/Button/Button';
 //import React from 'react';
-import { Helmet } from "react-helmet";
-import ReactGA from "react-ga4";
-import { useState, useEffect } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import { useForm } from "react-hook-form";
-import { Rating } from "@material-tailwind/react";
+import { Helmet } from 'react-helmet';
+import ReactGA from 'react-ga4';
+import { useState, useEffect } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { Rating } from '@material-tailwind/react';
 //import { AnalyticsEvent } from '../../function.js';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 //import SignUpForm from './SignUpForm';
 
 import {
@@ -17,18 +17,21 @@ import {
   DialogHeader,
   DialogBody,
   DialogFooter,
-} from "@material-tailwind/react";
+} from '@material-tailwind/react';
 
 const SignUp = () => {
   useEffect(() => {
     ReactGA.send({
-      hitType: "pageview",
-      page: "/sign-up",
-      title: "Sign Up",
+      hitType: 'pageview',
+      page: '/sign-up',
+      title: 'Sign Up',
     });
   });
 
   const [showDetails, setShowDetails] = useState(false);
+  const [showDrugUsageDetails, setShowshowDrugUsageDetail] = useState(false);
+  const [showFPprogramDetails, setshowFPprogramDetails] = useState(false);
+  const [showAlcoholUsageDetails, setShowAlcoholUsageDetails] = useState(false);
   const [showInjury, setShowInjury] = useState(false);
   const [showScoliosis, setShowScoliosis] = useState(false);
   const [showOtherTraining, setShowOtherTraining] = useState(false);
@@ -41,8 +44,10 @@ const SignUp = () => {
   const [showIsGrains, setShowIsGrains] = useState(false);
   const [activitiesRating, setActivitiesRating] = useState(0);
   const [dietRating, setDietRating] = useState(0);
-  const [activitiesRatingError, setActivitiesRatingError] = useState("");
-  const [dietRatingError, setDietRatingError] = useState("");
+  const [grainRating, setGrainRating] = useState(0);
+  const [activitiesRatingError, setActivitiesRatingError] = useState('');
+  const [dietRatingError, setDietRatingError] = useState('');
+  const [grainRatingError, setGrainRatingError] = useState('');
   const navigate = useNavigate();
 
   // might be able ot get rid of this
@@ -51,37 +56,38 @@ const SignUp = () => {
   const questionnaireAPI = import.meta.env.VITE_SIGNUP_API;
 
   const validationSchema = Yup.object().shape({
-    first_name: Yup.string().required("What is your First Name"),
-    last_name: Yup.string().required("Last Name is required"),
+    first_name: Yup.string().required('What is your First Name'),
+    last_name: Yup.string().required('Last Name is required'),
     contact_email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    phoneNumber: Yup.string().required("Phone Number is required"),
-    foundUs: Yup.string().required("Please select how you heard about us"),
-    otherText: Yup.string().when("foundUs", {
-      is: (value) => value === "Other",
-      then: Yup.string().required("Please specify how you heard about us"),
+      .email('Invalid email address')
+      .required('Email is required'),
+    phoneNumber: Yup.string().required('Phone Number is required'),
+    foundUs: Yup.string().required('Please select how you heard about us'),
+    otherText: Yup.string().when('foundUs', {
+      is: (value) => value === 'Other',
+      then: Yup.string().required('Please specify how you heard about us'),
     }),
 
-    age: Yup.number().typeError("How old are you?").required("Age is required"),
-    gender: Yup.string().required("Gender is required"),
-    occupation: Yup.string().required("Occupation is required"),
+    age: Yup.number().typeError('How old are you?').required('Age is required'),
+    gender: Yup.string().required('Gender is required'),
+    occupation: Yup.string().required('Occupation is required'),
     chronicPain: Yup.string().required(
-      "Please select if you have chronic pain"
+      'Please select if you have chronic pain'
     ),
     injury: Yup.string().required(
-      "Please select if you are overcoming an injury"
+      'Please select if you are overcoming an injury'
     ),
-    scoliosis: Yup.string().required("Please select if you have scoliosis"),
-    isGrains: Yup.string().required("Please select if you eat grains or not"),
-    drugUsage: Yup.string().required("Please select"),
-    FPprogram: Yup.string().required("Please select an option"),
+    scoliosis: Yup.string().required('Please select if you have scoliosis'),
+    isGrains: Yup.string().required('Please select if you eat grains or not'),
+    drugUsage: Yup.string().required('Please select'),
+    alcoholUsage: Yup.string().required('Please select'),
+    FPprogram: Yup.string().required('Please select an option'),
     tainingTimes: Yup.string()
-      .max(2000, "Message is too long")
-      .required("Please Provide Times & Days"),
+      .max(2000, 'Message is too long')
+      .required('Please Provide Times & Days'),
     goals: Yup.string()
-      .max(2000, "Message is too long")
-      .required("Please Describe Your Goals"),
+      .max(2000, 'Message is too long')
+      .required('Please Describe Your Goals'),
   });
 
   // Assuming `data` is an object containing the form data
@@ -96,18 +102,30 @@ const SignUp = () => {
   });
 
   const onSubmit = async (signUpFormData) => {
-    const allFormData = { ...signUpFormData, activitiesRating, dietRating };
+    const allFormData = {
+      ...signUpFormData,
+      activitiesRating,
+      dietRating,
+      grainRating,
+    };
 
     if (showActivities && activitiesRating <= 0) {
       setActivitiesRatingError(
-        "1 Star being completely unwilling, 5 Stars being very willing"
+        '1 Star being completely unwilling, 5 Stars being very willing'
       );
       // alert("Please provide a rating before submitting.");
       return;
     }
     if (showIsVegan && dietRating <= 0) {
       setDietRatingError(
-        "1 Star being completely unwilling, 5 Stars being very willing"
+        '1 Star being completely unwilling, 5 Stars being very willing'
+      );
+      // alert("Please provide a rating before submitting.");
+      return;
+    }
+    if (showIsGrains && grainRating <= 0) {
+      setGrainRatingError(
+        '1 Star being completely unwilling, 5 Stars being very willing'
       );
       // alert("Please provide a rating before submitting.");
       return;
@@ -119,7 +137,7 @@ const SignUp = () => {
     setIsSubmitted(true);
     //AnalyticsEvent('Contact Form, Success');
     setTimeout(() => {
-      navigate("/");
+      navigate('/pricing');
     }, 5000);
   };
 
@@ -138,25 +156,25 @@ const SignUp = () => {
 
   const handleOpen = () => setOpen(!open);
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
 
   const handleErrors = (error) => {
-    console.error("Error:", error);
+    console.error('Error:', error);
     if (error.response) {
       // The request was made and the server responded with a status code
-      console.error("Response data:", error.response.data);
-      console.error("Response status:", error.response.status);
-      console.error("Response headers:", error.response.headers);
-      alert("Error: " + JSON.stringify(error.response.data));
+      console.error('Response data:', error.response.data);
+      console.error('Response status:', error.response.status);
+      console.error('Response headers:', error.response.headers);
+      alert('Error: ' + JSON.stringify(error.response.data));
     } else if (error.request) {
       // The request was made but no response was received
-      console.error("Request:", error.request);
+      console.error('Request:', error.request);
       alert(error.request);
     } else {
       // Something happened in setting up the request that triggered an error
-      console.error("Error message:", error.message);
-      alert("Error: " + error.message);
+      console.error('Error message:', error.message);
+      alert('Error: ' + error.message);
     }
   };
 
@@ -189,7 +207,9 @@ const SignUp = () => {
             <Helmet>
               <meta charset="UTF-8" />
               <title>
-                Sign Up - NYC Biomechanics - Functional Patterns Training in NYC
+                {' '}
+                Questionnaire - NYC Biomechanics - Functional Patterns Training
+                in NYC
               </title>
               <meta
                 name="viewport"
@@ -300,7 +320,7 @@ const SignUp = () => {
             <div className="py-5 mt-[75px] min-h-screen mx-4">
               <div className="py-5 n mx-4">
                 <h1 className="uppercase items-center text-center mb-5 lg:text-[36px]">
-                  1 on 1 Training New Client Questionnaire
+                  New Client Questionnaire
                 </h1>
 
                 <div className="items-center text-center">
@@ -310,7 +330,7 @@ const SignUp = () => {
                       // handleClick();
                     }}
                     className="items-center text-center"
-                    style={{ backgroundColor: "#030201", color: "white" }}
+                    style={{ backgroundColor: '#030201', color: 'white' }}
                   >
                     fill out
                   </Button>
@@ -349,37 +369,37 @@ const SignUp = () => {
                           <div>
                             <input
                               placeholder={`${
-                                errors?.first_name?.message ? "" : "First Name"
-                              }${errors?.first_name?.message || ""}`}
+                                errors?.first_name?.message ? '' : 'First Name'
+                              }${errors?.first_name?.message || ''}`}
                               type="text"
                               name="first_name"
                               id="first_name"
                               className={`py-3 px-4 block w-full border ${
-                                errors?.first_name ? "error" : ""
+                                errors?.first_name ? 'error' : ''
                               } ${
                                 errors?.first_name
-                                  ? "border-red-500 text-red-900"
-                                  : "border-black"
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
                               }`}
-                              {...register("first_name")}
+                              {...register('first_name')}
                             />
                           </div>
                           <div>
                             <input
                               placeholder={`${
-                                errors?.last_name?.message ? "" : "Last Name"
-                              }${errors?.last_name?.message || ""}`}
+                                errors?.last_name?.message ? '' : 'Last Name'
+                              }${errors?.last_name?.message || ''}`}
                               type="text"
                               name="last_name"
                               id="last_name"
                               className={`py-3 px-4 block w-full border ${
-                                errors?.last_name ? "error" : ""
+                                errors?.last_name ? 'error' : ''
                               } ${
                                 errors?.last_name
-                                  ? "border-red-500 text-red-900"
-                                  : "border-black"
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
                               }`}
-                              {...register("last_name")}
+                              {...register('last_name')}
                             />
                           </div>
 
@@ -387,41 +407,41 @@ const SignUp = () => {
                             <input
                               placeholder={`${
                                 errors?.contact_email?.message
-                                  ? ""
-                                  : "Email Address"
-                              }${errors?.contact_email?.message || ""}`}
+                                  ? ''
+                                  : 'Email Address'
+                              }${errors?.contact_email?.message || ''}`}
                               type="email"
                               name="contact_email"
                               id="contact_email"
                               autoComplete="Email"
                               className={`py-3 px-4 block w-full border ${
-                                errors?.contact_email ? "error" : ""
+                                errors?.contact_email ? 'error' : ''
                               } ${
                                 errors?.contact_email
-                                  ? "border-red-500 text-red-900"
-                                  : "border-black"
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
                               }`}
-                              {...register("contact_email")}
+                              {...register('contact_email')}
                             />
                           </div>
                           <div>
                             <input
                               placeholder={`${
                                 errors?.phoneNumber?.message
-                                  ? ""
-                                  : "Phone Number"
-                              }${errors?.phoneNumber?.message || ""}`}
+                                  ? ''
+                                  : 'Phone Number'
+                              }${errors?.phoneNumber?.message || ''}`}
                               type="text"
                               name="phoneNumber"
                               id="phoneNumber"
                               className={`py-3 px-4 block w-full border ${
-                                errors?.phoneNumber ? "error" : ""
+                                errors?.phoneNumber ? 'error' : ''
                               } ${
                                 errors?.phoneNumber
-                                  ? "border-red-500 text-red-900"
-                                  : "border-black"
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
                               }`}
-                              {...register("phoneNumber")}
+                              {...register('phoneNumber')}
                             />
                           </div>
 
@@ -442,7 +462,7 @@ const SignUp = () => {
                                     setFoundUs(event.target.value)
                                   }
                                   onClick={() => setFoundUsOther(false)}
-                                  {...register("foundUs")}
+                                  {...register('foundUs')}
                                 />
                                 <label htmlFor="Search Engine">
                                   Search Engine
@@ -460,7 +480,7 @@ const SignUp = () => {
                                     setFoundUs(event.target.value)
                                   }
                                   onClick={() => setFoundUsOther(false)}
-                                  {...register("foundUs")}
+                                  {...register('foundUs')}
                                 />
                                 <label htmlFor="Social Medi">
                                   Social Media
@@ -478,7 +498,7 @@ const SignUp = () => {
                                     setFoundUs(event.target.value)
                                   }
                                   onClick={() => setFoundUsOther(false)}
-                                  {...register("foundUs")}
+                                  {...register('foundUs')}
                                 />
                                 <label htmlFor="Word of Mouth">
                                   Word of Mouth
@@ -496,18 +516,18 @@ const SignUp = () => {
                                     setFoundUs(event.target.value)
                                   }
                                   onClick={() => setFoundUsOther(false)}
-                                  {...register("foundUs")}
+                                  {...register('foundUs')}
                                 />
                                 <label htmlFor="referral">Referral</label>
                               </div>
                               <div>
                                 {/* Display error message */}
                                 {errors.foundUs &&
-                                  foundUs !== "Other" &&
-                                  foundUs !== "Search Engine" &&
-                                  foundUs !== "Socials Media" &&
-                                  foundUs !== "Word Of Mouth" &&
-                                  foundUs !== "Referral" && (
+                                  foundUs !== 'Other' &&
+                                  foundUs !== 'Search Engine' &&
+                                  foundUs !== 'Socials Media' &&
+                                  foundUs !== 'Word Of Mouth' &&
+                                  foundUs !== 'Referral' && (
                                     <p className="text-red-500">
                                       Please select an option
                                     </p>
@@ -533,9 +553,9 @@ const SignUp = () => {
                                     <input
                                       placeholder={`${
                                         errors?.foundUs?.message
-                                          ? ""
-                                          : "Where did you find us?"
-                                      }${errors?.foundUs?.message || ""}`}
+                                          ? ''
+                                          : 'Where did you find us?'
+                                      }${errors?.foundUs?.message || ''}`}
                                       type="text"
                                       id="foundUsOther"
                                       name="foundUs"
@@ -544,13 +564,13 @@ const SignUp = () => {
                                       }
                                       className={`py-3 px-4 block w-full border ${
                                         (errors?.foundUs?.message,
-                                        "error message")
-                                      } ${errors?.foundUs ? "error" : ""} ${
+                                        'error message')
+                                      } ${errors?.foundUs ? 'error' : ''} ${
                                         errors?.foundUs
-                                          ? "border-red-500 text-red-900"
-                                          : "border-black"
+                                          ? 'border-red-500 text-red-900'
+                                          : 'border-black'
                                       }`}
-                                      {...register("foundUs")}
+                                      {...register('foundUs')}
                                     />
                                   </div>
                                 )}
@@ -562,13 +582,13 @@ const SignUp = () => {
                             <select
                               id="age"
                               name="age"
-                              {...register("age")}
+                              {...register('age')}
                               className={`block py-3 px-4 border p-2 focus:outline-none ${
-                                errors?.age ? "error" : ""
+                                errors?.age ? 'error' : ''
                               } ${
                                 errors?.age
-                                  ? "border-red-500 text-red-900"
-                                  : "border-black"
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
                               }`}
                             >
                               <option>Age</option>
@@ -596,7 +616,7 @@ const SignUp = () => {
                                 id="male"
                                 name="gender"
                                 value="male"
-                                {...register("gender")}
+                                {...register('gender')}
                                 className="mr-2"
                               />
                               <label htmlFor="male" className="mr-4">
@@ -607,21 +627,12 @@ const SignUp = () => {
                                 id="female"
                                 name="gender"
                                 value="female"
-                                {...register("gender")}
+                                {...register('gender')}
                                 className="mr-2"
                               />
                               <label htmlFor="female" className="mr-4">
                                 Female
                               </label>
-                              <input
-                                type="radio"
-                                id="other"
-                                name="gender"
-                                value="other"
-                                {...register("gender")}
-                                className="mr-2"
-                              />
-                              <label htmlFor="other">X</label>
                             </div>
 
                             {/* Display error message for injury */}
@@ -636,20 +647,20 @@ const SignUp = () => {
                             <input
                               placeholder={`${
                                 errors?.occupation?.message
-                                  ? ""
-                                  : "What is your occupation?"
-                              }${errors?.occupation?.message || ""}`}
+                                  ? ''
+                                  : 'What is your occupation?'
+                              }${errors?.occupation?.message || ''}`}
                               type="text"
                               name="occupation"
                               id="occupation"
                               className={`py-3 px-4 block w-full border ${
-                                errors?.occupation ? "error" : ""
+                                errors?.occupation ? 'error' : ''
                               } ${
                                 errors?.occupation
-                                  ? "border-red-500 text-red-900"
-                                  : "border-black"
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
                               }`}
-                              {...register("occupation")}
+                              {...register('occupation')}
                             />
                           </div>
 
@@ -663,7 +674,7 @@ const SignUp = () => {
                                 id="yes"
                                 name="chronicPain"
                                 value="yes"
-                                {...register("chronicPain", { required: true })}
+                                {...register('chronicPain', { required: true })}
                                 onClick={() => setShowDetails(true)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="yes" className="ml-2 mr-4">
@@ -674,7 +685,7 @@ const SignUp = () => {
                                 id="no"
                                 name="chronicPain"
                                 value="no"
-                                {...register("chronicPain", { required: true })}
+                                {...register('chronicPain', { required: true })}
                                 onClick={() => setShowDetails(false)} // Hide input box when "No" is clicked
                               />
                               <label htmlFor="no" className="ml-2">
@@ -704,13 +715,13 @@ const SignUp = () => {
                                   id="painDetails"
                                   placeholder="Type your answer here"
                                   name="painDetails"
-                                  {...register("chronicPain")}
+                                  {...register('chronicPain')}
                                   className={`py-3 px-4 block w-full border ${
-                                    errors?.chronicPain ? "error" : ""
+                                    errors?.chronicPain ? 'error' : ''
                                   } ${
                                     errors?.chronicPain
-                                      ? "border-red-500 text-red-900"
-                                      : "border-black"
+                                      ? 'border-red-500 text-red-900'
+                                      : 'border-black'
                                   }`}
                                 />
                               </div>
@@ -727,7 +738,7 @@ const SignUp = () => {
                                 id="yes"
                                 name="injury"
                                 value="yes"
-                                {...register("injury", { required: true })}
+                                {...register('injury', { required: true })}
                                 onClick={() => setShowInjury(true)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="yes" className="ml-2 mr-4">
@@ -738,7 +749,7 @@ const SignUp = () => {
                                 id="no"
                                 name="injury"
                                 value="no"
-                                {...register("injury", { required: true })}
+                                {...register('injury', { required: true })}
                                 onClick={() => setShowInjury(false)} // Hide input box when "No" is clicked
                               />
                               <label htmlFor="no" className="ml-2">
@@ -767,13 +778,13 @@ const SignUp = () => {
                                   id="injuryDetails"
                                   placeholder="Type your answer here"
                                   name="injuryDetails"
-                                  {...register("injury")}
+                                  {...register('injury')}
                                   className={`py-3 px-4 block w-full border ${
-                                    errors?.injury ? "error" : ""
+                                    errors?.injury ? 'error' : ''
                                   } ${
                                     errors?.injury
-                                      ? "border-red-500 text-red-900"
-                                      : "border-black"
+                                      ? 'border-red-500 text-red-900'
+                                      : 'border-black'
                                   }`}
                                 />
                               </div>
@@ -789,7 +800,7 @@ const SignUp = () => {
                                 type="radio"
                                 id="yes"
                                 name="scoliosis"
-                                {...register("scoliosis", { required: true })}
+                                {...register('scoliosis', { required: true })}
                                 onClick={() => setShowScoliosis(true)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="yes" className="ml-2 mr-4">
@@ -800,7 +811,7 @@ const SignUp = () => {
                                 id="no"
                                 name="scoliosis"
                                 value="no"
-                                {...register("scoliosis", { required: true })}
+                                {...register('scoliosis', { required: true })}
                                 onClick={() => setShowScoliosis(false)} // Hide input box when "No" is clicked
                               />
                               <label htmlFor="no" className="ml-2">
@@ -829,13 +840,13 @@ const SignUp = () => {
                                   id="scoliosisDetails"
                                   name="scoliosisDetails"
                                   placeholder="Type your answer here"
-                                  {...register("scoliosis")}
+                                  {...register('scoliosis')}
                                   className={`py-3 px-4 block w-full border ${
-                                    errors?.scoliosis ? "error" : ""
+                                    errors?.scoliosis ? 'error' : ''
                                   } ${
                                     errors?.scoliosis
-                                      ? "border-red-500 text-red-900"
-                                      : "border-black"
+                                      ? 'border-red-500 text-red-900'
+                                      : 'border-black'
                                   }`}
                                 />
                               </div>
@@ -856,7 +867,7 @@ const SignUp = () => {
                                   id="weightLifting"
                                   name="otherTraining"
                                   value="weightLifting"
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   onClick={() => setShowOtherTraining(false)} // Show input box when "Yes" is clicked
@@ -873,7 +884,7 @@ const SignUp = () => {
                                   id="yoga"
                                   name="otherTraining"
                                   value="Yoga"
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   onClick={() => setShowOtherTraining(false)} // Show input box when "Yes" is clicked
@@ -888,7 +899,7 @@ const SignUp = () => {
                                   id="pilates"
                                   name="otherTraining"
                                   value="Pilates"
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   onClick={() => setShowOtherTraining(false)} // Show input box when "Yes" is clicked
@@ -903,7 +914,7 @@ const SignUp = () => {
                                   id="FRC"
                                   name="otherTraining"
                                   value="FRC"
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   onClick={() => setShowOtherTraining(false)} // Show input box when "Yes" is clicked
@@ -920,7 +931,7 @@ const SignUp = () => {
                                   id="stretching"
                                   name="otherTraining"
                                   value="stretching"
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   onClick={() => setShowOtherTraining(false)} // Show input box when "Yes" is clicked
@@ -937,7 +948,7 @@ const SignUp = () => {
                                   id="chiropractic"
                                   name="otherTraining"
                                   value="chiropractic"
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   onClick={() => setShowOtherTraining(false)} // Show input box when "Yes" is clicked
@@ -954,7 +965,7 @@ const SignUp = () => {
                                   id="physicalTherapy"
                                   name="otherTraining"
                                   value="physicalTherapy"
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   onClick={() => setShowOtherTraining(false)} // Show input box when "Yes" is clicked
@@ -970,7 +981,7 @@ const SignUp = () => {
                                   type="checkbox"
                                   id="otherOthertraining"
                                   name="otherTraining"
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   //  onClick={() => setShowOtherTraining(true)} // Show input box when "Yes" is clicked
@@ -999,14 +1010,14 @@ const SignUp = () => {
                                     name="otherTrainingDetails"
                                     className={`py-3 px-4 block w-full border text-sm ${
                                       errors?.otherTrainingDetails
-                                        ? "error"
-                                        : ""
+                                        ? 'error'
+                                        : ''
                                     } ${
                                       errors?.otherTrainingDetails
-                                        ? "border-red-500 text-red-900"
-                                        : "border-black"
+                                        ? 'border-red-500 text-red-900'
+                                        : 'border-black'
                                     }`}
-                                    {...register("otherTrainingDetails")}
+                                    {...register('otherTrainingDetails')}
                                   />
                                 </div>
                               )}
@@ -1019,7 +1030,7 @@ const SignUp = () => {
                                   name="otherTraining"
                                   value="none"
                                   onChange={handleNoneCheckbox}
-                                  {...register("otherTraining", {
+                                  {...register('otherTraining', {
                                     required: true,
                                   })}
                                   onClick={() => setShowOtherTraining(false)} // Hide input box when "No" is clicked
@@ -1040,7 +1051,7 @@ const SignUp = () => {
                                 id="yes"
                                 name="activities"
                                 value="yes"
-                                {...register("activities", { required: true })}
+                                {...register('activities', { required: true })}
                                 onClick={() => setShowActivities(true)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="yes" className="ml-2 mr-4">
@@ -1051,7 +1062,7 @@ const SignUp = () => {
                                 id="no"
                                 name="activities"
                                 value="no"
-                                {...register("activities", { required: true })}
+                                {...register('activities', { required: true })}
                                 onClick={() => setShowActivities(false)} // Hide input box when "No" is clicked
                               />
                               <label htmlFor="no" className="ml-2">
@@ -1067,13 +1078,13 @@ const SignUp = () => {
                                     placeholder="Please Elaborate"
                                     id="activitiesDetails"
                                     name="activitiesDetails"
-                                    {...register("activities")}
+                                    {...register('activities')}
                                     className={`py-3 px-4 block w-full border ${
-                                      errors?.activities ? "error" : ""
+                                      errors?.activities ? 'error' : ''
                                     } ${
                                       errors?.activities
-                                        ? "border-red-500 text-red-900"
-                                        : "border-black"
+                                        ? 'border-red-500 text-red-900'
+                                        : 'border-black'
                                     }`}
                                   />
                                 </div>
@@ -1123,7 +1134,7 @@ const SignUp = () => {
                                 id="yes"
                                 name="fitnessPro"
                                 value="yes"
-                                {...register("fitnessPro", { required: true })}
+                                {...register('fitnessPro', { required: true })}
                                 onClick={() => setShowFitnessPro(true)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="yes" className="ml-2 mr-4">
@@ -1134,7 +1145,7 @@ const SignUp = () => {
                                 id="no"
                                 name="fitnessPro"
                                 value="no"
-                                {...register("fitnessPro", { required: true })}
+                                {...register('fitnessPro', { required: true })}
                                 onClick={() => setShowFitnessPro(false)} // Hide input box when "No" is clicked
                               />
                               <label htmlFor="no" className="ml-2">
@@ -1156,13 +1167,13 @@ const SignUp = () => {
                                   placeholder="Type your answer here"
                                   name="fitnessPro"
                                   className={`py-3 px-4 block w-full border text-sm ${
-                                    errors?.fitnessPro ? "error" : ""
+                                    errors?.fitnessPro ? 'error' : ''
                                   } ${
                                     errors?.fitnessPro
-                                      ? "border-red-500 text-red-900"
-                                      : "border-black"
+                                      ? 'border-red-500 text-red-900'
+                                      : 'border-black'
                                   }`}
-                                  {...register("fitnessPro")}
+                                  {...register('fitnessPro')}
                                 />
                               </div>
                             )}
@@ -1185,7 +1196,7 @@ const SignUp = () => {
                                 id="yes"
                                 name="isVegan"
                                 value="yes"
-                                {...register("isVegan", { required: true })}
+                                {...register('isVegan', { required: true })}
                                 onClick={() => setShowIsVegan(true)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="yes" className="ml-2 mr-4">
@@ -1196,7 +1207,7 @@ const SignUp = () => {
                                 id="no"
                                 name="isVegan"
                                 value="no"
-                                {...register("isVegan", { required: true })}
+                                {...register('isVegan', { required: true })}
                                 onClick={() => setShowIsVegan(false)} // Hide input box when "No" is clicked
                               />
                               <label htmlFor="no" className="ml-2">
@@ -1222,13 +1233,13 @@ const SignUp = () => {
                                     placeholder="Type your answer here"
                                     name="isVegan"
                                     className={`py-3 px-4 block w-full border${
-                                      errors?.isVegan ? "error" : ""
+                                      errors?.isVegan ? 'error' : ''
                                     } ${
                                       errors?.isVegan
-                                        ? "border-red-500 text-red-900"
-                                        : "border-black"
+                                        ? 'border-red-500 text-red-900'
+                                        : 'border-black'
                                     }`}
-                                    {...register("isVegan")}
+                                    {...register('isVegan')}
                                   />
                                 </div>
 
@@ -1274,7 +1285,7 @@ const SignUp = () => {
                                 id="yes"
                                 name="isGrains"
                                 value="yes"
-                                {...register("isGrains", { required: true })}
+                                {...register('isGrains', { required: true })}
                                 onClick={() => setShowIsGrains(true)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="yes" className="ml-2 mr-4">
@@ -1285,7 +1296,7 @@ const SignUp = () => {
                                 id="no"
                                 name="isGrains"
                                 value="no"
-                                {...register("isGrains", { required: true })}
+                                {...register('isGrains', { required: true })}
                                 onClick={() => setShowIsGrains(false)} // Hide input box when "No" is clicked
                               />
                               <label htmlFor="no" className="ml-2">
@@ -1302,30 +1313,112 @@ const SignUp = () => {
 
                             {/* Conditionally render input box */}
                             {showIsGrains && (
-                              <div className="mt-4">
+                              <>
+                                <div className="mt-4">
+                                  <label
+                                    htmlFor="scoliosIsGrains"
+                                    className="block mb-2"
+                                  >
+                                    Please elaborate on the type of grains you
+                                    consume
+                                  </label>
+                                  <input
+                                    type="text"
+                                    id="isGrains"
+                                    placeholder="Type your answer here"
+                                    name="isVegan"
+                                    {...register('isGrains')}
+                                    className={`py-3 px-4 block w-full border ${
+                                      errors?.isGrains ? 'error' : ''
+                                    } ${
+                                      errors?.isGrains
+                                        ? 'border-red-500 text-red-900'
+                                        : 'border-black'
+                                    }`}
+                                  />
+                                </div>
+
                                 <label
-                                  htmlFor="scoliosIsGrains"
-                                  className="block mb-2"
+                                  htmlFor="grainRating"
+                                  className="block mb-2 mt-2"
                                 >
-                                  Please elaborate on the nature of your injury
+                                  How open are you to decrease or eliminate the
+                                  consumption of grains from your diet. Grains
+                                  will be inflammatory to the body impacting
+                                  your posture and biomechanics negatively
                                 </label>
-                                <input
-                                  type="text"
-                                  id="isGrains"
-                                  placeholder="Type your answer here"
-                                  name="isVegan"
-                                  {...register("isGrains")}
-                                  className={`py-3 px-4 block w-full border ${
-                                    errors?.isGrains ? "error" : ""
-                                  } ${
-                                    errors?.isGrains
-                                      ? "border-red-500 text-red-900"
-                                      : "border-black"
-                                  }`}
+
+                                {grainRatingError && (
+                                  <p className="text-red-500">
+                                    {grainRatingError}
+                                  </p>
+                                )}
+
+                                <Rating
+                                  style={{ maxWidth: 180 }}
+                                  value={grainRating}
+                                  onChange={(value) => setGrainRating(value)}
+                                  className=""
                                 />
-                              </div>
+
+                                {/* Display error message for injury */}
+                                {errors.isGrains && (
+                                  <p className="text-red-500">
+                                    Please select an option
+                                  </p>
+                                )}
+                              </>
                             )}
                           </div>
+
+                          <div className="border border-black p-4">
+                            <label htmlFor="sun" className="block mb-4">
+                              How often do you get sunlight?
+                            </label>
+                            <input
+                              placeholder={`${
+                                errors?.sun?.message
+                                  ? ''
+                                  : 'Type Your Answere Here'
+                              }${errors?.sun?.message || ''}`}
+                              type="text"
+                              name="sun"
+                              id="sun"
+                              className={`py-3 px-4 block w-full border ${
+                                errors?.sun ? 'error' : ''
+                              } ${
+                                errors?.sun
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
+                              }`}
+                              {...register('sun')}
+                            />
+                          </div>
+
+                          <div className="border border-black p-4">
+                            <label htmlFor="nature" className="block mb-4">
+                              How often do you get into nature?
+                            </label>
+                            <input
+                              placeholder={`${
+                                errors?.nature?.message
+                                  ? ''
+                                  : 'Type Your Answere Here'
+                              }${errors?.nature?.message || ''}`}
+                              type="text"
+                              name="nature"
+                              id="nature"
+                              className={`py-3 px-4 block w-full border ${
+                                errors?.nature ? 'error' : ''
+                              } ${
+                                errors?.nature
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
+                              }`}
+                              {...register('nature')}
+                            />
+                          </div>
+
                           <div className="border border-black p-4">
                             <label htmlFor="drugUsage" className="block mb-2">
                               Do you currently use any prescription or
@@ -1337,8 +1430,8 @@ const SignUp = () => {
                                 id="drugUsageYes"
                                 name="drugUsage"
                                 value="yes"
-                                {...register("drugUsage", { required: true })}
-                                onClick={() => setShowDetails(true)} // Show input box when "Yes" is clicked
+                                {...register('drugUsage', { required: true })}
+                                onClick={() => setShowshowDrugUsageDetail(true)} // Show input box when "Yes" is clicked
                               />
                               <label
                                 htmlFor="drugUsageYes"
@@ -1351,8 +1444,10 @@ const SignUp = () => {
                                 id="drugUsageNo"
                                 name="drugUsage"
                                 value="no"
-                                {...register("drugUsage", { required: true })}
-                                onClick={() => setShowDetails(false)} // Hide input box when "No" is clicked
+                                {...register('drugUsage', { required: true })}
+                                onClick={() =>
+                                  setShowshowDrugUsageDetail(false)
+                                } // Hide input box when "No" is clicked
                               />
                               <label htmlFor="drugUsageNo" className="ml-2">
                                 No
@@ -1360,14 +1455,14 @@ const SignUp = () => {
                             </div>
                             {/* Conditionally render input box */}
                             {/* Display error message for drug usage only if showDetails is false */}
-                            {!showDetails && errors.drugUsage && (
+                            {!showDrugUsageDetails && errors.drugUsage && (
                               <p className="text-red-500">
                                 Please select an option
                               </p>
                             )}
 
                             {/* Conditionally render input box */}
-                            {showDetails && (
+                            {showDrugUsageDetails && (
                               <div className="mt-4">
                                 <label
                                   htmlFor="drugDetails"
@@ -1381,13 +1476,89 @@ const SignUp = () => {
                                   id="drugUsage"
                                   placeholder="Type your answer here"
                                   name="drugUsage"
-                                  {...register("drugUsage")}
+                                  {...register('drugUsage')}
                                   className={`py-3 px-4 block w-full border ${
-                                    errors?.drugUsage ? "error" : ""
+                                    errors?.drugUsage ? 'error' : ''
                                   } ${
                                     errors?.drugUsage
-                                      ? "border-red-500 text-red-900"
-                                      : "border-black"
+                                      ? 'border-red-500 text-red-900'
+                                      : 'border-black'
+                                  }`}
+                                />
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="border border-black p-4">
+                            <label
+                              htmlFor="alcoholUsage"
+                              className="block mb-2"
+                            >
+                              Do you drink Alcohol?
+                            </label>
+                            <div className="flex items-center">
+                              <input
+                                type="radio"
+                                id="alcoholUsageYes"
+                                name="alcoholUsage"
+                                value="yes"
+                                {...register('alcoholUsage', {
+                                  required: true,
+                                })}
+                                onClick={() => setShowAlcoholUsageDetails(true)} // Show input box when "Yes" is clicked
+                              />
+                              <label
+                                htmlFor="alcoholUsageYes"
+                                className="ml-2 mr-4"
+                              >
+                                Yes
+                              </label>
+                              <input
+                                type="radio"
+                                id="alcoholUsageNo"
+                                name="alcoholUsage"
+                                value="no"
+                                {...register('alcoholUsage', {
+                                  required: true,
+                                })}
+                                onClick={() =>
+                                  setShowAlcoholUsageDetails(false)
+                                } // Hide input box when "No" is clicked
+                              />
+                              <label htmlFor="alcoholUsage" className="ml-2">
+                                No
+                              </label>
+                            </div>
+                            {/* Conditionally render input box */}
+                            {/* Display error message for drug usage only if showDetails is false */}
+                            {!showAlcoholUsageDetails &&
+                              errors.alcoholUsage && (
+                                <p className="text-red-500">
+                                  Please select an option
+                                </p>
+                              )}
+
+                            {/* Conditionally render input box */}
+                            {showAlcoholUsageDetails && (
+                              <div className="mt-4">
+                                <label
+                                  htmlFor="alcoholUsageDetails"
+                                  className="block mb-2"
+                                >
+                                  How often?
+                                </label>
+                                <input
+                                  type="text"
+                                  id="alcoholUsage"
+                                  placeholder="Type your answer here"
+                                  name="alcoholUsage"
+                                  {...register('alcoholUsage')}
+                                  className={`py-3 px-4 block w-full border ${
+                                    errors?.alcoholUsage ? 'error' : ''
+                                  } ${
+                                    errors?.alcoholUsage
+                                      ? 'border-red-500 text-red-900'
+                                      : 'border-black'
                                   }`}
                                 />
                               </div>
@@ -1405,7 +1576,8 @@ const SignUp = () => {
                                 id="yes"
                                 name="FPprogram"
                                 value="yes"
-                                {...register("FPprogram", { required: true })}
+                                {...register('FPprogram', { required: true })}
+                                onClick={() => setshowFPprogramDetails(true)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="yes" className="ml-2 mr-4">
                                 Yes
@@ -1415,7 +1587,8 @@ const SignUp = () => {
                                 id="no"
                                 name="FPprogram"
                                 value="no"
-                                {...register("FPprogram", { required: true })}
+                                {...register('FPprogram', { required: true })}
+                                onClick={() => setshowFPprogramDetails(false)} // Show input box when "Yes" is clicked
                               />
                               <label htmlFor="no" className="ml-2">
                                 No
@@ -1429,13 +1602,47 @@ const SignUp = () => {
                             )}
                           </div>
 
+                          {/* Conditionally render input box */}
+                          {/* Display error message for drug usage only if showDetails is false */}
+                          {!showFPprogramDetails && errors.FPprogram && (
+                            <p className="text-red-500">
+                              Please select an option
+                            </p>
+                          )}
+
+                          {/* Conditionally render input box */}
+                          {showFPprogramDetails && (
+                            <div className="mt-4">
+                              <label
+                                htmlFor="FPprogramDetails"
+                                className="block mb-2"
+                              >
+                                How many weeks have you completed?
+                              </label>
+                              <input
+                                type="text"
+                                id="FPprogram"
+                                placeholder="Type your answer here"
+                                name="FPprogram"
+                                {...register('FPprogram')}
+                                className={`py-3 px-4 block w-full border ${
+                                  errors?.FPprogram ? 'error' : ''
+                                } ${
+                                  errors?.FPprogram
+                                    ? 'border-red-500 text-red-900'
+                                    : 'border-black'
+                                }`}
+                              />
+                            </div>
+                          )}
+
                           <div className="border border-black p-4">
-                            {" "}
+                            {' '}
                             <label
                               htmlFor="tainingTimes"
                               className="block mb-4"
                             >
-                              {" "}
+                              {' '}
                               What would be the best days/times for you to
                               train? Please be as specific as possible, as our
                               practitioners will only have specific
@@ -1444,20 +1651,20 @@ const SignUp = () => {
                             <input
                               placeholder={`${
                                 errors?.tainingTimes?.message
-                                  ? ""
-                                  : "Type Your Answere Here"
-                              }${errors?.tainingTimes?.message || ""}`}
+                                  ? ''
+                                  : 'Type Your Answere Here'
+                              }${errors?.tainingTimes?.message || ''}`}
                               type="text"
                               name="tainingTimes"
                               id="tainingTimes"
                               className={`py-3 px-4 block w-full border ${
-                                errors?.tainingTimes ? "error" : ""
+                                errors?.tainingTimes ? 'error' : ''
                               } ${
                                 errors?.tainingTimes
-                                  ? "border-red-500 text-red-900"
-                                  : "border-black"
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
                               }`}
-                              {...register("tainingTimes")}
+                              {...register('tainingTimes')}
                             />
                           </div>
                           <div className="border border-black p-4">
@@ -1468,20 +1675,20 @@ const SignUp = () => {
                             <input
                               placeholder={`${
                                 errors?.goals?.message
-                                  ? ""
-                                  : "Type Your Answere Here"
-                              }${errors?.goals?.message || ""}`}
+                                  ? ''
+                                  : 'Type Your Answere Here'
+                              }${errors?.goals?.message || ''}`}
                               type="text"
                               name="goals"
                               id="goals"
                               className={`py-3 px-4 block w-full border ${
-                                errors?.goals ? "error" : ""
+                                errors?.goals ? 'error' : ''
                               } ${
                                 errors?.goals
-                                  ? "border-red-500 text-red-900"
-                                  : "border-black"
+                                  ? 'border-red-500 text-red-900'
+                                  : 'border-black'
                               }`}
-                              {...register("goals")}
+                              {...register('goals')}
                             />
                           </div>
                         </div>
