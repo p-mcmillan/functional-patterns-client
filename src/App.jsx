@@ -52,7 +52,7 @@ function App() {
         >
           <Routes>
             <Route
-              path="/"
+              path={'/'}
               element={
                 <Home
                   photoResultsData={photoResultsData}
@@ -62,6 +62,19 @@ function App() {
                 />
               }
             />
+
+            <Route
+              path={'/home'}
+              element={
+                <Home
+                  photoResultsData={photoResultsData}
+                  videoHeroData={videoHeroData}
+                  infoVideoData={infoVideoData}
+                  setOpenPopup={setOpenPopup}
+                />
+              }
+            />
+
             <Route
               path="/results"
               element={
@@ -82,7 +95,7 @@ function App() {
             <Route path="/practitioners" element={<Practitioners />} />
             <Route path="/practitioners/brent-mcmillan" element={<Brent />} />
             <Route path="/reviews" element={<Reviews />} />
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to="/home" />} />
             <Route path="/socials" element={<Social />} />
             <Route path="/sign-up" element={<SignUp />} />
           </Routes>

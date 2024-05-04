@@ -1,69 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <!-- Home page -->
-    <url>
-        <loc>https://www.nycbiomechanics.com/</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>weekly</changefreq>
+       <url>
+        <loc>https://www.nycbiomechanics.com/home</loc>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dprfd8p6y/image/upload/t_media_lib_thumb/v1711243782/nyc-biomechanics/images/guy-01_nsm50q.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dprfd8p6y/image/upload/t_media_lib_thumb/v1711243770/nyc-biomechanics/images/woman-03_pvh0xj.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dprfd8p6y/image/upload/t_media_lib_thumb/v1711243780/nyc-biomechanics/images/girl-04_xwoz22.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dprfd8p6y/image/upload/t_media_lib_thumb/v1711243772/nyc-biomechanics/images/chick-01_itlrhu.jpg</image:loc>
+        </image:image>
     </url>
     <!-- Other pages -->
     <url>
-        <loc>https://www.nycbiomechanics.com/about</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
+        <loc>https://www.nycbiomechanics.com/about-us</loc>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
+        <image:image>
+<image:loc>https://www.nycbiomechanics.com/brent-mcmillan.jpg</image:loc>
+</image:image>
     </url>
     <url>
         <loc>https://www.nycbiomechanics.com/results</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
       <url>
         <loc>https://www.nycbiomechanics.com/pricing</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.1</priority>
     </url>
       <url>
         <loc>https://www.nycbiomechanics.com/faq</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.2</priority>
     </url>
       <url>
         <loc>https://www.nycbiomechanics.com/practitioners</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
     </url>
       <url>
         <loc>https://www.nycbiomechanics.com/practitioners/brent-mcmillan</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
+                <image:image>
+<image:loc>https://res.cloudinary.com/dprfd8p6y/image/upload/ar_1:1,b_rgb:ffffff,bo_5px_solid_rgb:070707,c_fill,g_auto,r_max,w_434/v1711301220/nyc-biomechanics/images/Brent-McMillan_nj0a15.jpg</image:loc>
+</image:image>
     </url>
       <url>
         <loc>https://www.nycbiomechanics.com/reviews</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.75</priority>
     </url>
       <url>
         <loc>https://www.nycbiomechanics.com/social</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
     </url>
       <url>
         <loc>https://www.nycbiomechanics.com/sign-up</loc>
-        <lastmod>2024-04-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2024-05-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
     </url>
-    <users>
-<user>CF437B01BA74556F50C29647A8E71D8D</user>
-</users>
-    <!-- Add more pages as needed -->
 </urlset>

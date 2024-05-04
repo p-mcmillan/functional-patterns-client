@@ -34,6 +34,7 @@ const Hero = ({ scrollToInfo, videoHeroData, infoRef }) => {
         playsInline // Play inline on iOS
         webkit-playsinline="true" // Older iOS support
         style={{ objectFit: 'cover' }}
+        poster="https://res.cloudinary.com/dprfd8p6y/video/upload/v1712764738/nyc-biomechanics/videos/Hero4482bbef_zeuaoi.jpg" // Add this line with the path to your thumbnail image
       />
 
       {/* Video Container Desktop*/}

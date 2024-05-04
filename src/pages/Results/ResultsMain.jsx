@@ -47,6 +47,7 @@ const ResultsMain = ({ resultsMainRef, videoHeroData }) => {
         playsInline // Play inline on iOS
         webkit-playsinline="true" // Older iOS support
         style={{ objectFit: 'cover' }}
+        poster="https://res.cloudinary.com/dprfd8p6y/video/upload/q_61/v1712764738/nyc-biomechanics/videos/Results-Mainccfbddc2_gtigbg.jpg"
       />
 
       {/* Video Container Desktop*/}
@@ -58,6 +59,7 @@ const ResultsMain = ({ resultsMainRef, videoHeroData }) => {
         playsInline // Play inline on iOS
         webkit-playsinline="true" // Older iOS support
         className="hidden md:block md:h-[calc(100vh)] w-full object-cover grayscale"
+        poster="https://res.cloudinary.com/dprfd8p6y/video/upload/q_61/v1712764738/nyc-biomechanics/videos/Results-Mainccfbddc2_gtigbg.jpg"
       />
       <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
         <h1 className="py-5 text-center text-white uppercase mb-4 px-6">

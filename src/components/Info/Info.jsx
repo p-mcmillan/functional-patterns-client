@@ -38,6 +38,7 @@ const Info = forwardRef(({ infoVideoData }, ref) => {
         playsInline // Play inline on iOS
         webkit-playsinline="true" // Older iOS support
         className="w-full h-[50%] lg:h-[calc(100vh)] object-cover grayscale"
+        poster="https://res.cloudinary.com/dprfd8p6y/video/upload/v1712764736/nyc-biomechanics/videos/Info9616dbba_hxoqzb.jpg"
       />
 
       {/* Content */}

@@ -11,10 +11,10 @@ const Footer = () => {
     //   icon: <ion-icon name="logo-youtube"></ion-icon>,
     //   url: 'https://www.youtube.com/',
     // },
-    // {
-    //   icon: <ion-icon name="logo-google"></ion-icon>,
-    //   url: 'https://www.google.ca/',
-    // },
+    {
+      icon: <ion-icon name="logo-google"></ion-icon>,
+      url: 'https://maps.app.goo.gl/VzM6SEaMZfeznTJq8',
+    },
     {
       icon: <ion-icon name="logo-facebook"></ion-icon>,
       url: 'https://www.facebook.com/brent.mcmillan.12',
