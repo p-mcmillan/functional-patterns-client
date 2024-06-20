@@ -62,9 +62,9 @@ const ResultsMain = ({ resultsMainRef, videoHeroData }) => {
         poster="https://res.cloudinary.com/dprfd8p6y/video/upload/q_61/v1712764738/nyc-biomechanics/videos/Results-Mainccfbddc2_gtigbg.jpg"
       />
       <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
-        <h1 className="py-5 text-center text-white uppercase mb-4 px-6">
+        <h2 className="py-5 text-center text-white uppercase mb-4 px-6">
           reprogram muscles using pain free movement
-        </h1>
+        </h2>
 
         <div className="pt-[10px]">
           <Button

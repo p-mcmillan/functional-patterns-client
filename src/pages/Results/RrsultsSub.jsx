@@ -36,7 +36,7 @@ const ResultsSub = (props) => {
   return (
     <div className="overflow-hidden bg-gradient-to-t from-black from-5% via-sky-500 via-30% to-emerald-500 to-90% opacity-95">
       <div className="mt-10">
-        <h1 className="text-4xl py-5">REAL RESULTS</h1>
+        <h2 className="text-4xl py-5">REAL RESULTS</h2>
 
         <div className=" md:flex justify-center">
           {firstResult && (
