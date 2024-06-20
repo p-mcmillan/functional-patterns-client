@@ -5,7 +5,7 @@ const Footer = () => {
   const iconsTab = [
     {
       icon: <ion-icon name="logo-instagram"></ion-icon>,
-      url: 'https://instagram.com/brentmcmillan_',
+      url: 'https://www.instagram.com/nycbiomechanics/',
     },
     // {
     //   icon: <ion-icon name="logo-youtube"></ion-icon>,

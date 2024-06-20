@@ -4,15 +4,64 @@ import PropTypes from 'prop-types';
 //import PopUp from "../../components/PopUp/PopUp";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import { useState } from 'react';
 
 register();
 
+// export const ResultsCarousel = ({ photoResultsData }) => {
+//   const renderResults = (resultType) =>
+//     photoResultsData
+//       .filter((result) => result.result === resultType)
+//       .map((result) => (
+//         <div key={result.id}>
+//           <Swiper
+//             slidesPerView={1}
+//             navigation={true}
+//             centeredSlides={true}
+//             loop={true}
+//             modules={[Pagination]}
+//             centeredSlidesBounds={true}
+//             pagination={{
+//               clickable: true,
+//             }}
+//             autoplay={{
+//               delay: 3000,
+//             }}
+//           >
+//             {result.images.map((image) => (
+//               <SwiperSlide key={image.id}>
+//                 <img src={image.image} alt={image.id} />
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+
+//           <p className="mt-5 text-xl text-white">{result.treatment}</p>
+//         </div>
+//       ));
+
+//   return (
+//     <div className="lg:flex flex-wrap pb-10 gap-4 justify-around">
+//       <div className="mt-10 lg:max-w-[20%]">{renderResults('back')}</div>
+//       <div className="mt-10 lg:max-w-[20%]">{renderResults('neck')}</div>
+//       <div className="mt-10 lg:max-w-[20%]">{renderResults('toes')}</div>
+//       <div className="mt-10 lg:max-w-[20%]">{renderResults('sholder')}</div>
+//       <div className="mt-10 lg:max-w-[20%]">{renderResults('arm')}</div>
+//     </div>
+//   );
+// };
+
+// ResultsCarousel.propTypes = {
+//   photoResultsData: PropTypes.array.isRequired,
+// };
+
 export const ResultsCarousel = ({ photoResultsData }) => {
-  const renderResults = (resultType) =>
-    photoResultsData
-      .filter((result) => result.result === resultType)
-      .map((result) => (
-        <div key={result.id}>
+  console.log(photoResultsData);
+
+  return (
+    <div className="lg:flex flex-wrap pb-10 gap-4 justify-around">
+      {photoResultsData.map((result) => (
+        <div key={result.id} className="mt-10 lg:max-w-[20%]">
+          {/* <p className="mt-5 text-xl text-white">{result.treatment}</p> */}
           <Swiper
             slidesPerView={1}
             navigation={true}
@@ -27,24 +76,20 @@ export const ResultsCarousel = ({ photoResultsData }) => {
               delay: 3000,
             }}
           >
-            {result.images.map((image) => (
-              <SwiperSlide key={image.id}>
-                <img src={image.image} alt={image.id} />
-              </SwiperSlide>
-            ))}
+            {result.images.map(
+              (
+                image // Iterate over the images array
+              ) => (
+                <SwiperSlide key={image.id}>
+                  <img src={image.image} alt={image.id} />{' '}
+                  {/* Access the image property */}
+                </SwiperSlide>
+              )
+            )}
           </Swiper>
-
           <p className="mt-5 text-xl text-white">{result.treatment}</p>
         </div>
-      ));
-
-  return (
-    <div className="lg:flex flex-wrap pb-10 gap-4 justify-around">
-      <div className="mt-10 lg:max-w-[20%]">{renderResults('back')}</div>
-      <div className="mt-10 lg:max-w-[20%]">{renderResults('neck')}</div>
-      <div className="mt-10 lg:max-w-[20%]">{renderResults('toes')}</div>
-      <div className="mt-10 lg:max-w-[20%]">{renderResults('sholder')}</div>
-      <div className="mt-10 lg:max-w-[20%]">{renderResults('arm')}</div>
+      ))}
     </div>
   );
 };
