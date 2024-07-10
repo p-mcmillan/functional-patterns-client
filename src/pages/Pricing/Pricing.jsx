@@ -36,9 +36,7 @@ const Pricing = ({ pricingData }) => {
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-t from-[#1c1917] from-10% via-[#1c1917] via-30% to-[#000000] to-80% lg:pt-[75px] pt-[20px]">
       <Helmet>
         <meta charset="UTF-8" />
-        <title>
-          Pricing - NYC Biomechanics - Functional Patterns Training in NYC
-        </title>
+        <title>Pricing - NYC Biomechanics</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index,follow" />
         <meta

@@ -8,6 +8,9 @@ const Hero = lazy(() => import('../../components/Hero/Hero'));
 const Info = lazy(() => import('../../components/Info/Info'));
 const ResultsMain = lazy(() => import('../Results/ResultsMain'));
 const ResultsSub = lazy(() => import('../Results/RrsultsSub'));
+const Social = lazy(() => import('../Social/Social'));
+const GetStart = lazy(() => import('../GetStart/GetStart'));
+const AboutUs = lazy(() => import('../AboutUs/AboutUs'));
 
 const Home = (props) => {
   useEffect(() => {
@@ -47,12 +50,29 @@ const Home = (props) => {
         scrollToInfo={scrollToInfo}
         infoRef={infoRef}
       />
+
+      <RenderOnViewportEntry
+        threshold={0.25}
+        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
+        style={{ minHeight: '240px' }}
+      >
+        <GetStart />
+      </RenderOnViewportEntry>
+
       <RenderOnViewportEntry
         threshold={0.25}
         rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
         style={{ minHeight: '240px' }}
       >
         <Info ref={infoRef} infoVideoData={props.infoVideoData} />
+      </RenderOnViewportEntry>
+
+      <RenderOnViewportEntry
+        threshold={0.25}
+        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
+        style={{ minHeight: '240px' }}
+      >
+        <AboutUs />
       </RenderOnViewportEntry>
 
       <RenderOnViewportEntry
@@ -75,6 +95,14 @@ const Home = (props) => {
           photoResultsData={props.photoResultsData}
           setOpenPopup={props.setOpenPopup}
         />
+      </RenderOnViewportEntry>
+
+      <RenderOnViewportEntry
+        threshold={0.25}
+        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
+        style={{ minHeight: '240px' }}
+      >
+        <Social />
       </RenderOnViewportEntry>
     </div>
   );

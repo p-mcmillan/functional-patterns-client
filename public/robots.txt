@@ -28,6 +28,7 @@ Disallow: /*?reversePaginate=*
 Disallow: /*&reversePaginate=*
 Allow: /public/
 Allow: /api/ui-extensions/
+Sitemap: https://www.nycbiomechanics.com/sitemap.xml
 
 User-agent: GPTBot
 User-agent: ChatGPT-User
@@ -65,5 +66,54 @@ Disallow: /*?format=ical
 Disallow: /*&format=ical
 Disallow: /*?reversePaginate=*
 Disallow: /*&reversePaginate=*
-
 Sitemap: https://www.nycbiomechanics.com/sitemap.xml
+
+User-agent: AhrefsBot
+User-agent: AhrefsSiteAudit
+Crawl-delay: 10
+Disallow: /a/downloads/-/*
+Disallow: /admin
+Disallow: /cart
+Disallow: /orders
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /1519191/checkouts
+Disallow: /1519191/orders
+Disallow: /carts
+Disallow: /account
+Disallow: /collections/*sort_by*
+Disallow: /*/collections/*sort_by*
+Disallow: /collections/*+*
+Disallow: /collections/*%2B*
+Disallow: /collections/*%2b*
+Disallow: /*/collections/*+*
+Disallow: /*/collections/*%2B*
+Disallow: /*/collections/*%2b*
+Disallow: */collections/*filter*&*filter*
+Disallow: /blogs/*+*
+Disallow: /blogs/*%2B*
+Disallow: /blogs/*%2b*
+Disallow: /*/blogs/*+*
+Disallow: /*/blogs/*%2B*
+Disallow: /*/blogs/*%2b*
+Disallow: /*?*oseid=*
+Disallow: /*preview_theme_id*
+Disallow: /*preview_script_id*
+Disallow: /policies/
+Disallow: /*/policies/
+Disallow: /*/*?*ls=*&ls=*
+Disallow: /*/*?*ls%3D*%3Fls%3D*
+Disallow: /*/*?*ls%3d*%3fls%3d*
+Disallow: /search
+Disallow: /apple-app-site-association
+Disallow: /.well-known/shopify/monorail
+Disallow: /cdn/wpm/*.js
+Disallow: /recommendations/products
+Disallow: /*/recommendations/products
+Sitemap: https://www.nycbiomechanics.com/sitemap.xml
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: Pinterest
+Crawl-delay: 1

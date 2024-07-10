@@ -8,12 +8,12 @@ import ReactGA from 'react-ga4';
 
 import Review from '../../components/Reviews/Review';
 import { Helmet } from 'react-helmet';
-import { Rating } from '@material-tailwind/react';
 import {
   Dialog,
   DialogHeader,
   DialogBody,
   DialogFooter,
+  Rating,
 } from '@material-tailwind/react';
 
 const reviewsApi = import.meta.env.VITE_REVIEWS_API;

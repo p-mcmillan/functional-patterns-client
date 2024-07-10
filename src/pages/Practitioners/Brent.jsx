@@ -31,10 +31,7 @@ const Brent = () => {
     <div className="flex flex-col items-center px-[15px] py-[80px] text-center">
       <Helmet>
         <meta charset="UTF-8" />
-        <title>
-          Brent McMillan - NYC Biomechanics - Human Biomechanics Specialist
-          Level 2
-        </title>
+        <title>Brent McMillan - Human Biomechanics Specialist Level 2</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index,follow" />
         <meta

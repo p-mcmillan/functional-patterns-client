@@ -66,7 +66,7 @@ const ResultsMain = ({ resultsMainRef, videoHeroData }) => {
           reprogram muscles using pain free movement
         </h1>
 
-        <div className="pt-[10px]">
+        {/* <div className="pt-[10px]">
           <Button
             className=""
             onClick={handleClick}
@@ -78,7 +78,7 @@ const ResultsMain = ({ resultsMainRef, videoHeroData }) => {
           >
             about us
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

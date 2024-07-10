@@ -17,10 +17,6 @@ const AboutUs = () => {
     navigate('/sign-up');
   };
 
-  useEffect(() => {
-    // 👇️ scroll to top on page load
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
   return (
     <div className="flex flex-col items-center mx-[15px] py-[80px] text-center h-full ">
       <Helmet>
@@ -36,7 +32,7 @@ const AboutUs = () => {
         />
         <meta
           name="keywords"
-          content="Functional Patterns New York, NYC, Biomechanics, NYC Biomechanics, Brent McMillan, mcmillan, Brent, New York City, Functional Patterns NYC, Manhattan, Brooklyn, Training, Fitness, Movement, Posture, Corrective exercise, Strength training, Mobility, Neuromuscular re-education, Core stability, Alignment, Injury prevention, Movement efficiency, Body awareness, Functional training, Kinetic chain, Balance, Flexibility, Rehabilitation, Sports performance, Range of motion, Dynamic movement, Motor control"
+          content="Functional Patterns New York, Functional Patterns NY, NYC Biomechanics, NY Biomechanics,Biomechanics NY, Brent McMillan, biomechanics training NYC, functional patterns NYC, Training, Manhattan biomechanics, Functional Movement, Brooklyn biomechanics, biomechanics center NYC, fitness training NYC, movement training NYC, posture correction NYC, strength training NYC, mobility training NYC, neuromuscular re-education NYC, core stability training NYC, injury prevention NYC, movement efficiency NYC, body awareness NYC, functional training NYC, kinetic chain training NYC, balance training NYC, flexibility training NYC, rehabilitation NYC, sports performance NYC, range of motion NYC, dynamic movement training NYC, motor control training NYC"
         />
         <meta name="theme-color" content="#303030" />
         <meta name="copyright" content="Copyright © 2024 NYC Biomechanics" />

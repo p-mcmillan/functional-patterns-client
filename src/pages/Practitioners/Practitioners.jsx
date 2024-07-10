@@ -30,9 +30,7 @@ const Practitioners = () => {
     <div className="flex flex-col items-center px-[15px] py-[80px] text-center min-h-screen mb-[80px]">
       <Helmet>
         <meta charset="UTF-8" />
-        <title>
-          Practitioners - NYC Biomechanics - Functional Patterns Training in NYC
-        </title>
+        <title>Practitioners - NYC Biomechanics</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index,follow" />
         <meta

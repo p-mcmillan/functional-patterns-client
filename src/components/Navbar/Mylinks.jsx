@@ -25,26 +25,26 @@ export const links = [
         Head: 'Practitioners',
         to: '/practitioners',
       },
-      {
-        Head: 'Pricing',
-        to: '/pricing',
-      },
-      {
-        Head: 'FAQ',
-        to: '/faq',
-      },
-      {
-        Head: 'About Us',
-        to: '/about-us',
-      },
+      // {
+      //   Head: 'Pricing',
+      //   to: '/pricing',
+      // },
+      // {
+      //   Head: 'FAQ',
+      //   to: '/faq',
+      // },
+      // {
+      //   Head: 'About Us',
+      //   to: '/about-us',
+      // },
       {
         Head: 'Reviews',
         to: '/reviews',
       },
-      {
-        Head: 'Socials',
-        to: '/socials',
-      },
+      // {
+      //   Head: 'Socials',
+      //   to: '/socials',
+      // },
     ],
   },
 ];

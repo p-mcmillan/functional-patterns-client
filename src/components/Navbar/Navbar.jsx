@@ -85,6 +85,15 @@ const Navbar = () => {
           {/* Pass the closeMobileMenu function */}
           <li>
             <Link
+              to="/pricing"
+              className="py-7 px-3 inline-block font-BebasNeue text-[28px] tracking-[2px]"
+              onClick={closeMobileMenu}
+            >
+              pricing
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/contact-us"
               className="py-7 px-3 inline-block font-BebasNeue text-[28px] tracking-[2px]"
               onClick={closeMobileMenu}
@@ -121,6 +130,15 @@ const Navbar = () => {
           </li>
           <NavLinks closeMobileMenu={closeMobileMenu} />{' '}
           {/* Pass the closeMobileMenu function */}
+          <li>
+            <Link
+              to="/pricing"
+              className="py-7 px-3 inline-block font-BebasNeue text-[28px] tracking-[2px]"
+              onClick={closeMobileMenu}
+            >
+              pricing
+            </Link>
+          </li>
           <li className="text-[28px] font-BebasNeue tracking-[2px]">
             <Link
               to="/contact-us"

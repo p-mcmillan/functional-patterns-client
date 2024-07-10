@@ -13,7 +13,6 @@ import { pricingMenu } from './constants/pricing';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
-
 import Footer from './components/Footer/Footer';
 
 //import PopUp from './components/PopUp/PopUp';
@@ -22,12 +21,12 @@ const Results = lazy(() => import('./pages/Results/Results'));
 const Schedule = lazy(() => import('./pages/Schedule/Schedule'));
 const Contact = lazy(() => import('./pages/Contact/Contact'));
 const Pricing = lazy(() => import('./pages/Pricing/Pricing'));
-const GetStart = lazy(() => import('./pages/GetStart/GetStart'));
+//const GetStart = lazy(() => import('./pages/GetStart/GetStart'));
 const AboutUs = lazy(() => import('./pages/AboutUs/AboutUs'));
 const Practitioners = lazy(() => import('./pages/Practitioners/Practitioners'));
 const Brent = lazy(() => import('./pages/Practitioners/Brent'));
 const Reviews = lazy(() => import('./pages/Reviews/Reviews'));
-const Social = lazy(() => import('./pages/Social/Social'));
+// const Social = lazy(() => import('./pages/Social/Social'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 
 function App() {
@@ -91,12 +90,12 @@ function App() {
               element={<Pricing pricingData={pricingData} />}
             />
             <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/faq" element={<GetStart />} />
+            {/* <Route path="/faq" element={<GetStart />} /> */}
             <Route path="/practitioners" element={<Practitioners />} />
             <Route path="/practitioners/brent-mcmillan" element={<Brent />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="*" element={<Navigate to="/home" />} />
-            <Route path="/socials" element={<Social />} />
+            {/* <Route path="/socials" element={<Social />} /> */}
             <Route path="/sign-up" element={<SignUp />} />
           </Routes>
         </Suspense>

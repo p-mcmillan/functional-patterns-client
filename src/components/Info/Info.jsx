@@ -58,7 +58,7 @@ const Info = forwardRef(({ infoVideoData }, ref) => {
             programs tailored to optimize your biomechanical efficiency. Join us
             for a revolutionary approach to fitness and well-being.
           </p>{' '}
-          <div className="pt-[10px]">
+          {/* <div className="pt-[10px]">
             <Link to="/faq">
               <Button
                 className=""
@@ -71,7 +71,7 @@ const Info = forwardRef(({ infoVideoData }, ref) => {
                 Get Started
               </Button>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
