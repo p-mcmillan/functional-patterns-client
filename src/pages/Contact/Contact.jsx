@@ -1,35 +1,35 @@
-import ReactGA from "react-ga4";
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Helmet } from "react-helmet";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import axios from "axios";
-import Button from "../../components/Button/Button";
-import { useNavigate } from "react-router-dom";
-import { AnalyticsEvent } from "../../function.js";
+import ReactGA from 'react-ga4';
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import axios from 'axios';
+import Button from '../../components/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { AnalyticsEvent } from '../../function.js';
 
 const apiBaseUrl = import.meta.env.VITE_CONTACT_API;
 
 const validationSchema = Yup.object({
-  firstName: Yup.string().required("First Name is required"),
-  lastName: Yup.string().required("Last Name is required"),
+  firstName: Yup.string().required('First Name is required'),
+  lastName: Yup.string().required('Last Name is required'),
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email('Invalid email address')
+    .required('Email is required'),
 
-  phoneNumber: Yup.string().required("Phone Number is required"),
+  phoneNumber: Yup.string().required('Phone Number is required'),
   message: Yup.string()
-    .max(250, "Message is too long")
-    .required("Message is required"),
+    .max(250, 'Message is too long')
+    .required('Message is required'),
 });
 
 const Contact = () => {
   useEffect(() => {
     ReactGA.send({
-      hitType: "pageview",
-      page: "/contact-us",
-      title: "Contact",
+      hitType: 'pageview',
+      page: '/contact-us',
+      title: 'Contact',
     });
   });
   const {
@@ -42,7 +42,7 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -50,32 +50,33 @@ const Contact = () => {
   const navigate = useNavigate();
 
   const handleErrors = (error) => {
-    console.error("Error:", error);
+    console.error('Error:', error);
     if (error.response) {
       // The request was made and the server responded with a status code
-      console.error("Response data:", error.response.data);
-      console.error("Response status:", error.response.status);
-      console.error("Response headers:", error.response.headers);
-      alert("Error: " + JSON.stringify(error.response.data));
+      console.error('Response data:', error.response.data);
+      console.error('Response status:', error.response.status);
+      console.error('Response headers:', error.response.headers);
+      alert('Error: ' + JSON.stringify(error.response.data));
     } else if (error.request) {
       // The request was made but no response was received
-      console.error("Request:", error.request);
+      console.error('Request:', error.request);
       alert(error.request);
     } else {
       // Something happened in setting up the request that triggered an error
-      console.error("Error message:", error.message);
-      alert("Error: " + error.message);
+      console.error('Error message:', error.message);
+      alert('Error: ' + error.message);
     }
   };
 
-  const onSubmit = async (formData, actions) => {
+  const onSubmit = async (formData) => {
     try {
       await axios.post(`${apiBaseUrl}`, formData);
       setIsSubmitted(true);
-      AnalyticsEvent("Contact Form, Success");
+      AnalyticsEvent('Contact Form, Success');
       setTimeout(() => {
-        navigate("/");
+        navigate('/');
       }, 5000);
+    } catch (error) {
       handleErrors(error);
     } finally {
       // actions.setSubmitting(false)
@@ -180,37 +181,37 @@ const Contact = () => {
                   <div>
                     <input
                       placeholder={`${
-                        errors?.firstName?.message ? "" : "First Name"
-                      }${errors?.firstName?.message || ""}`}
+                        errors?.firstName?.message ? '' : 'First Name'
+                      }${errors?.firstName?.message || ''}`}
                       type="text"
                       name="firstName"
                       id="firstName"
                       className={`py-3 px-4 block w-full border text-sm ${
-                        errors?.firstName ? "error" : ""
+                        errors?.firstName ? 'error' : ''
                       } ${
                         errors?.firstName
-                          ? "border-red-500 text-red-900"
-                          : "border-black"
+                          ? 'border-red-500 text-red-900'
+                          : 'border-black'
                       }`}
-                      {...register("firstName")}
+                      {...register('firstName')}
                     />
                   </div>
                   <div>
                     <input
                       placeholder={`${
-                        errors?.lastName?.message ? "" : "Last Name"
-                      }${errors?.lastName?.message || ""}`}
+                        errors?.lastName?.message ? '' : 'Last Name'
+                      }${errors?.lastName?.message || ''}`}
                       type="text"
                       name="lastName"
                       id="lastName"
                       className={`py-3 px-4 block w-full border text-sm ${
-                        errors?.lastName ? "error" : ""
+                        errors?.lastName ? 'error' : ''
                       } ${
                         errors?.lastName
-                          ? "border-red-500 text-red-900"
-                          : "border-black"
+                          ? 'border-red-500 text-red-900'
+                          : 'border-black'
                       }`}
-                      {...register("lastName")}
+                      {...register('lastName')}
                     />
                   </div>
                 </div>
@@ -218,59 +219,59 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                   <div>
                     <input
-                      placeholder={`${errors?.email?.message ? "" : "Email"}${
-                        errors?.email?.message || ""
+                      placeholder={`${errors?.email?.message ? '' : 'Email'}${
+                        errors?.email?.message || ''
                       }`}
                       type="email"
                       name="email"
                       id="email"
                       autoComplete="Email"
                       className={`py-3 px-4 block w-full border text-sm ${
-                        errors?.email ? "error" : ""
+                        errors?.email ? 'error' : ''
                       } ${
                         errors?.email
-                          ? "border-red-500 text-red-900"
-                          : "border-black"
+                          ? 'border-red-500 text-red-900'
+                          : 'border-black'
                       }`}
-                      {...register("email")}
+                      {...register('email')}
                     />
                   </div>
 
                   <div>
                     <input
                       placeholder={`${
-                        errors?.phoneNumber?.message ? "" : "Phone Number"
-                      }${errors?.phoneNumber?.message || ""}`}
+                        errors?.phoneNumber?.message ? '' : 'Phone Number'
+                      }${errors?.phoneNumber?.message || ''}`}
                       type="text"
                       name="phoneNumber"
                       id="phoneNumber"
                       className={`py-3 px-4 block w-full border text-sm ${
-                        errors?.phoneNumber ? "error" : ""
+                        errors?.phoneNumber ? 'error' : ''
                       } ${
                         errors?.phoneNumber
-                          ? "border-red-500 text-red-900"
-                          : "border-black"
+                          ? 'border-red-500 text-red-900'
+                          : 'border-black'
                       }`}
-                      {...register("phoneNumber")}
+                      {...register('phoneNumber')}
                     />
                   </div>
                 </div>
                 <div>
                   <textarea
                     placeholder={`${
-                      errors?.message?.message ? "" : "Type your message"
-                    }${errors?.message?.message || ""}`}
+                      errors?.message?.message ? '' : 'Type your message'
+                    }${errors?.message?.message || ''}`}
                     name="message"
                     id="message"
                     rows="4"
                     className={`py-3 px-4 block w-full border text-sm ${
-                      errors?.message ? "error" : ""
+                      errors?.message ? 'error' : ''
                     } ${
                       errors?.message
-                        ? "border-red-500 text-red-900"
-                        : "border-black"
+                        ? 'border-red-500 text-red-900'
+                        : 'border-black'
                     }`}
-                    {...register("message")}
+                    {...register('message')}
                   />
                 </div>
               </div>
@@ -278,7 +279,7 @@ const Contact = () => {
               <div className="mt-6 grid">
                 <Button
                   type="submit"
-                  style={{ backgroundColor: "#030201", color: "white" }}
+                  style={{ backgroundColor: '#030201', color: 'white' }}
                 >
                   send
                 </Button>
