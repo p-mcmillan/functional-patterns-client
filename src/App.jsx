@@ -18,7 +18,8 @@ import Footer from './components/Footer/Footer';
 //import PopUp from './components/PopUp/PopUp';
 
 const Results = lazy(() => import('./pages/Results/Results'));
-const Schedule = lazy(() => import('./pages/Schedule/Schedule'));
+//const Schedule = lazy(() => import('./pages/Schedule/Schedule'));
+
 const Contact = lazy(() => import('./pages/Contact/Contact'));
 const Pricing = lazy(() => import('./pages/Pricing/Pricing'));
 //const GetStart = lazy(() => import('./pages/GetStart/GetStart'));
@@ -83,7 +84,7 @@ function App() {
                 />
               }
             />
-            <Route path="/schedule" element={<Schedule />} />
+            {/* <Route path="/schedule" element={<Schedule />} /> */}
             <Route path="/contact-us" element={<Contact />} />
             <Route
               path="/pricing"

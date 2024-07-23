@@ -1,95 +1,39 @@
-//import { useRef, useEffect } from "react";
-import { register } from 'swiper/element/bundle';
 import PropTypes from 'prop-types';
-//import PopUp from "../../components/PopUp/PopUp";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import { useState } from 'react';
-
-register();
-
-// export const ResultsCarousel = ({ photoResultsData }) => {
-//   const renderResults = (resultType) =>
-//     photoResultsData
-//       .filter((result) => result.result === resultType)
-//       .map((result) => (
-//         <div key={result.id}>
-//           <Swiper
-//             slidesPerView={1}
-//             navigation={true}
-//             centeredSlides={true}
-//             loop={true}
-//             modules={[Pagination]}
-//             centeredSlidesBounds={true}
-//             pagination={{
-//               clickable: true,
-//             }}
-//             autoplay={{
-//               delay: 3000,
-//             }}
-//           >
-//             {result.images.map((image) => (
-//               <SwiperSlide key={image.id}>
-//                 <img src={image.image} alt={image.id} />
-//               </SwiperSlide>
-//             ))}
-//           </Swiper>
-
-//           <p className="mt-5 text-xl text-white">{result.treatment}</p>
-//         </div>
-//       ));
-
-//   return (
-//     <div className="lg:flex flex-wrap pb-10 gap-4 justify-around">
-//       <div className="mt-10 lg:max-w-[20%]">{renderResults('back')}</div>
-//       <div className="mt-10 lg:max-w-[20%]">{renderResults('neck')}</div>
-//       <div className="mt-10 lg:max-w-[20%]">{renderResults('toes')}</div>
-//       <div className="mt-10 lg:max-w-[20%]">{renderResults('sholder')}</div>
-//       <div className="mt-10 lg:max-w-[20%]">{renderResults('arm')}</div>
-//     </div>
-//   );
-// };
-
-// ResultsCarousel.propTypes = {
-//   photoResultsData: PropTypes.array.isRequired,
-// };
 
 export const ResultsCarousel = ({ photoResultsData }) => {
-  console.log(photoResultsData);
+  // Function to return a randomized index within range [0, max)
+  const getRandomIndex = (max) => {
+    return Math.floor(Math.random() * max);
+  };
 
   return (
     <div className="lg:flex flex-wrap pb-10 gap-4 justify-around">
-      {photoResultsData.map((result) => (
-        <div key={result.id} className="mt-10 lg:max-w-[20%]">
-          {/* <p className="mt-5 text-xl text-white">{result.treatment}</p> */}
-          <Swiper
-            slidesPerView={1}
-            navigation={true}
-            centeredSlides={true}
-            loop={true}
-            modules={[Pagination]}
-            centeredSlidesBounds={true}
-            pagination={{
-              clickable: true,
-            }}
-            autoplay={{
-              delay: 3000,
-            }}
-          >
-            {result.images.map(
-              (
-                image // Iterate over the images array
-              ) => (
-                <SwiperSlide key={image.id}>
-                  <img src={image.image} alt={image.id} />{' '}
-                  {/* Access the image property */}
-                </SwiperSlide>
-              )
-            )}
-          </Swiper>
-          <p className="mt-5 text-xl text-white">{result.treatment}</p>
-        </div>
-      ))}
+      {photoResultsData.map((result) => {
+        // Check if there are images in the result
+        if (result.images.length > 0) {
+          // Get a random index within the images array
+          const randomIndex = getRandomIndex(result.images.length);
+          const randomImage = result.images[randomIndex];
+
+          return (
+            <div key={result.id} className="mt-10 lg:max-w-[20%]">
+              {/* Render the random image */}
+              <div key={randomImage.id} className="mt-5">
+                <img
+                  src={randomImage.image}
+                  alt={randomImage.id}
+                  className="w-full h-auto"
+                />
+              </div>
+
+              <p className="mt-5 text-xl text-white">{result.treatment}</p>
+            </div>
+          );
+        } else {
+          // Handle case where there are no images in the result (if needed)
+          return null;
+        }
+      })}
     </div>
   );
 };

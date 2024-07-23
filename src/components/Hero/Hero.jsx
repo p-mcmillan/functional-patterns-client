@@ -48,7 +48,7 @@ const Hero = ({ scrollToInfo, videoHeroData, infoRef }) => {
         className="hidden md:block lg:h-[calc(100vh)] w-full object-cover"
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <p className="text-white uppercase text-[16px] font-bold mb-4 lg:text-4xl px-6">
+        <h1 className="text-white uppercase text-[16px] mb-4 lg:text-4xl px-6">
           <TypeAnimation
             sequence={[
               'say goodbye to chronic pain with NYC Biomechanics: your path to lasting relief',
@@ -60,7 +60,7 @@ const Hero = ({ scrollToInfo, videoHeroData, infoRef }) => {
             ]}
             repeat={Infinity}
           />
-        </p>
+        </h1>
         {/* <Button
           onClick={scrollToInfo}
           style={{

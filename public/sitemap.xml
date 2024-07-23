@@ -6,7 +6,7 @@
     <!-- Home page -->
     <url>
         <loc>https://www.nycbiomechanics.com</loc>
-        <lastmod>2024-07-18T19:44:36-07:00</lastmod>
+        <lastmod>2024-07-22T21:46:11-07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -25,7 +25,7 @@
     <!-- Other pages -->
     <url>
         <loc>https://www.nycbiomechanics.com/about-us</loc>
-        <lastmod>2024-07-18T19:44:36-07:00</lastmod>
+        <lastmod>2024-07-22T21:46:11-07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         <image:image>
@@ -34,25 +34,25 @@
     </url>
     <url>
         <loc>https://www.nycbiomechanics.com/results</loc>
-        <lastmod>2024-07-18T19:44:36-07:00</lastmod>
+        <lastmod>2024-07-22T21:46:11-07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.nycbiomechanics.com/pricing</loc>
-        <lastmod>2024-07-18T19:44:36-07:00</lastmod>
+        <lastmod>2024-07-22T21:46:11-07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.1</priority>
     </url>
     <url>
         <loc>https://www.nycbiomechanics.com/practitioners</loc>
-        <lastmod>2024-07-18T19:44:36-07:00</lastmod>
+        <lastmod>2024-07-22T21:46:11-07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://www.nycbiomechanics.com/practitioners/brent-mcmillan</loc>
-        <lastmod>2024-07-18T19:44:36-07:00</lastmod>
+        <lastmod>2024-07-22T21:46:11-07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         <image:image>
@@ -61,14 +61,13 @@
     </url>
     <url>
         <loc>https://www.nycbiomechanics.com/reviews</loc>
-        <lastmod>2024-07-18T19:44:36-07:00</lastmod>
+        <lastmod>2024-07-22T21:46:11-07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.75</priority>
     </url>
-
     <url>
         <loc>https://www.nycbiomechanics.com/sign-up</loc>
-        <lastmod>2024-07-18T19:44:36-07:00</lastmod>
+        <lastmod>2024-07-22T21:46:11-07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
     </url>

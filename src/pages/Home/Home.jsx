@@ -53,7 +53,7 @@ const Home = (props) => {
 
       <RenderOnViewportEntry
         threshold={0.25}
-        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
+        rootMargin="0px 0px 0px 0px"
         style={{ minHeight: '240px' }}
       >
         <GetStart />
@@ -61,7 +61,7 @@ const Home = (props) => {
 
       <RenderOnViewportEntry
         threshold={0.25}
-        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
+        rootMargin="0px 0px 0px 0px"
         style={{ minHeight: '240px' }}
       >
         <Info ref={infoRef} infoVideoData={props.infoVideoData} />
@@ -69,17 +69,13 @@ const Home = (props) => {
 
       <RenderOnViewportEntry
         threshold={0.25}
-        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
+        rootMargin="0px 0px 0px 0px"
         style={{ minHeight: '240px' }}
       >
         <AboutUs />
       </RenderOnViewportEntry>
 
-      <RenderOnViewportEntry
-        threshold={0.25}
-        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
-        style={{ minHeight: '240px' }}
-      >
+      <RenderOnViewportEntry threshold={0.25} rootMargin="0px 0px 0px 0px">
         <ResultsMain
           videoHeroData={props.videoHeroData}
           resultsMainRef={resultsMainRef}
@@ -88,7 +84,7 @@ const Home = (props) => {
 
       <RenderOnViewportEntry
         threshold={0.25}
-        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
+        rootMargin="0px 0px 0px 0px"
         style={{ minHeight: '240px' }}
       >
         <ResultsSub
@@ -99,7 +95,7 @@ const Home = (props) => {
 
       <RenderOnViewportEntry
         threshold={0.25}
-        rootMargin="0px 0px 0px 0px" // Correctly formatted rootMargin
+        rootMargin="0px 0px 0px 0px"
         style={{ minHeight: '240px' }}
       >
         <Social />

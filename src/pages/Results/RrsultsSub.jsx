@@ -70,14 +70,12 @@ const ResultsSub = (props) => {
         </div>
       </div>
       <div className="py-5">
-        {' '}
         <Button
           className="py-7"
           onClick={handleClick}
           style={{
-            backgroundColor: '#030201',
+            backgroundColor: 'blue',
             color: 'white',
-            opacity: 0.75,
           }}
         >
           more results

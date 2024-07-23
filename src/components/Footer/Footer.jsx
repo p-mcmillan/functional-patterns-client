@@ -51,7 +51,7 @@ const Footer = () => {
       } else if (android) {
         setMapLink(
           <a
-            href="https://maps.google.com/maps?q=25+W+14th+Street,+New+York,+NY+10011"
+            href="https://www.google.com/maps/place/NYC+Biomechanics/@40.7367833,-73.9997191,17z/data=!3m2!4b1!5s0x89c25997ff851d19:0x53098677f492e30a!4m6!3m5!1s0x89c2590062e6271b:0x2f201d415f97f385!8m2!3d40.7367834!4d-73.9948482!16s%2Fg%2F11vx4msnrv?entry=ttu"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -61,7 +61,7 @@ const Footer = () => {
       } else {
         setMapLink(
           <a
-            href="https://maps.google.com/maps?q=25+W+14th+Street,+New+York,+NY+10011"
+            href="https://www.google.com/maps/place/NYC+Biomechanics/@40.7367833,-73.9997191,17z/data=!3m2!4b1!5s0x89c25997ff851d19:0x53098677f492e30a!4m6!3m5!1s0x89c2590062e6271b:0x2f201d415f97f385!8m2!3d40.7367834!4d-73.9948482!16s%2Fg%2F11vx4msnrv?entry=ttu"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -74,7 +74,7 @@ const Footer = () => {
     openMaps();
 
     function obfuscateEmail(user, domain, extension) {
-      const obfuscatedEmail = `${user}@${domain}.${extension}`;
+      const obfuscatedEmail = `${user}[at]${domain}.${extension}`;
       const mailtoLink = `mailto:${obfuscatedEmail}?subject=${subject}&body=${body}`;
       setEmail(<a href={mailtoLink}>{obfuscatedEmail}</a>);
     }
@@ -87,7 +87,9 @@ const Footer = () => {
       <div className="container lg:mx-12 py-[rem]">
         <div className="flex justify-between flex-col md:flex-row items-center md:items-start text-left">
           <div className="flex flex-col md:p-0 py-4 gap-8">
-            <img src={Logo} alt="footer_logo" className="w-[15rem]" />
+            <a href="https://www.nycbiomechanics.com">
+              <img src={Logo} alt="footer_logo" className="w-[15rem]" />
+            </a>
             <div className="flex gap-7 text-[18px] text-white justify-center md:justify-start">
               {iconsTab.map(({ icon, url }, index) => (
                 <a

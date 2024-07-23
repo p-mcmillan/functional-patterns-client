@@ -149,7 +149,7 @@ const AboutUs = () => {
                 className="lg:self-start"
                 onClick={handleClick}
                 style={{
-                  backgroundColor: 'black',
+                  backgroundColor: 'blue',
                   color: 'white',
                 }}
               >

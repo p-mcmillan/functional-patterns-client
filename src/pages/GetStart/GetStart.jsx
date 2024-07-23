@@ -125,7 +125,7 @@ const GetStarted = () => {
           <Button
             className=""
             style={{
-              backgroundColor: 'black',
+              backgroundColor: 'blue',
               color: 'white',
             }}
             onClick={handleClick}
