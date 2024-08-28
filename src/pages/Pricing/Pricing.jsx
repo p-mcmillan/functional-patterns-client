@@ -102,7 +102,7 @@ const Pricing = ({ pricingData }) => {
         />
         <link rel="canonical" href="https://www.nycbiomechanics.com/pricing" />
       </Helmet>
-      <div className="mt-[80px]">
+      <div className="mt-[80px] mx-4">
         <div className="pb-10 gap-4">
           {pricingData.map((category, index) => (
             <Card key={index} className="text-center mb-4 mx-auto max-w-md">
@@ -132,13 +132,26 @@ const Pricing = ({ pricingData }) => {
             </Card>
           ))}
         </div>
-        <div className="text-white mb-5 text-[10px] text-center pl-[40px]">
+        <div className="text-white mb-5 text-[12px] text-center pl-[40px]">
           <div className="max-w-lg mx-auto text-left">
-            <p>
-              * Package expires within 60 days of purchase for 10 and 15 packs.{' '}
+            <ul class="list-none pl-6 relative">
+              <li class="relative before:content-[] before:absolute before:left-0 before:top-0 before:font-bold before:text-lg">
+                Package expires within 60 days of purchase for 10 and 15 packs.
+              </li>
               <br />
-              * Package expires within 30 days for 5 pack. <br />
-            </p>
+              <li class="relative before:content-[] before:absolute before:left-0 before:top-0 before:font-bold before:text-lg">
+                Package expires within 30 days for 5 pack.
+              </li>
+              <br />
+              <li class="relative before:content-[] before:absolute before:left-0 before:top-0 before:font-bold before:text-lg">
+                Session cancellations must be made at least 24 hours in advance;
+                otherwise, the session will be forfeited.
+              </li>
+              <br />
+              <li class="relative before:content-[] before:absolute before:left-0 before:top-0 before:font-bold before:text-lg">
+                No refunds will be issued.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
