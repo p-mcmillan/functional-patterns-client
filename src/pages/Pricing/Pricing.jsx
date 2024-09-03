@@ -132,9 +132,9 @@ const Pricing = ({ pricingData }) => {
             </Card>
           ))}
         </div>
-        <div className="text-white mb-5 text-[12px] text-center pl-[40px]">
+        <div className="text-white mb-5 text-[12px] text-center">
           <div className="max-w-lg mx-auto text-left">
-            <ul class="list-none pl-6 relative">
+            <ul class="list-none relative text-center">
               <li class="relative before:content-[] before:absolute before:left-0 before:top-0 before:font-bold before:text-lg">
                 Package expires within 60 days of purchase for 10 and 15 packs.
               </li>
@@ -145,7 +145,7 @@ const Pricing = ({ pricingData }) => {
               <br />
               <li class="relative before:content-[] before:absolute before:left-0 before:top-0 before:font-bold before:text-lg">
                 Session cancellations must be made at least 24 hours in advance;
-                otherwise, the session will be forfeited.
+                otherwise the session will be forfeited.
               </li>
               <br />
               <li class="relative before:content-[] before:absolute before:left-0 before:top-0 before:font-bold before:text-lg">
