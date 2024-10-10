@@ -125,7 +125,7 @@ const Practitioners = () => {
         <div className="my-5">
           <h2>Brent McMillan</h2>
           <p className="lg:text-[18px] ">
-            Human Biomechanics Specialist Level 2
+            Human Biomechanics Specialist Level 3
           </p>
         </div>
 

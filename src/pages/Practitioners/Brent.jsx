@@ -31,7 +31,7 @@ const Brent = () => {
     <div className="flex flex-col items-center px-[15px] py-[80px] text-center">
       <Helmet>
         <meta charset="UTF-8" />
-        <title>Brent McMillan - Human Biomechanics Specialist Level 2</title>
+        <title>Brent McMillan - Human Biomechanics Specialist Level 3</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index,follow" />
         <meta
@@ -108,7 +108,7 @@ const Brent = () => {
       </Helmet>
       <div className="my-5">
         <h2 className="lg:text-[36px]">Brent McMillan</h2>
-        <p className="lg:text-[18px]">Human Biomechanics Specialist Level 2</p>
+        <p className="lg:text-[18px]">Human Biomechanics Specialist Level 3</p>
       </div>
 
       <div className="flex flex-col items-center p-[30px] h-full">
